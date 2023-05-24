@@ -1,0 +1,100 @@
+defined_text = {
+	name = GetCountryDetailsUnlockReqs
+	text = {
+		trigger = { has_chosen_country = no }
+		localization_key = country_details_unlock
+	}
+}
+defined_text = {
+	name = GetLocalAdjective
+	text = {
+		trigger = {
+			FROM = { is_core_of = UKR }
+		}
+		localization_key = [UKR.GetAdjective]
+	}
+	text = {
+		trigger = {
+			FROM = { is_core_of = BLR }
+		}
+		localization_key = [BLR.GetAdjective]
+	}
+	text = {
+		trigger = {
+			FROM = { is_core_of = GEO }
+		}
+		localization_key = [GEO.GetAdjective]
+	}
+	text = {
+		trigger = {
+			FROM = { is_core_of = ARM }
+		}
+		localization_key = [ARM.GetAdjective]
+	}
+	text = {
+		trigger = {
+			FROM = { is_core_of = AZR }
+		}
+		localization_key = [AZR.GetAdjective]
+	}
+	text = {
+		trigger = {
+			FROM = { is_core_of = KAZ }
+		}
+		localization_key = [KAZ.GetAdjective]
+	}
+	text = {
+		trigger = {
+			FROM = { is_core_of = UZB }
+		}
+		localization_key = [UZB.GetAdjective]
+	}
+	text = {
+		trigger = {
+			FROM = { is_core_of = TMS }
+		}
+		localization_key = [TMS.GetAdjective]
+	}
+	text = {
+		trigger = {
+			FROM = { is_core_of = KYR }
+		}
+		localization_key = [KYR.GetAdjective]
+	}
+	text = {
+		trigger = {
+			FROM = { is_core_of = TAJ }
+		}
+		localization_key = [TAJ.GetAdjective]
+	}
+}
+defined_text = {
+	name = GetRebelliousnessColor
+	text = {
+		trigger = {
+			check_variable = { rebelliousness < 30 }
+		}
+		localization_key = rebelliousness_color_low
+	}
+	text = {
+		trigger = {
+			NOT = { check_variable = { rebelliousness < 30 } }
+			check_variable = { rebelliousness < 60 }
+		}
+		localization_key = rebelliousness_color_normal
+	}
+	text = {
+		trigger = {
+			NOT = { check_variable = { rebelliousness < 60 } }
+			check_variable = { rebelliousness < 90 }
+		}
+		localization_key = rebelliousness_color_high
+	}
+	text = {
+		trigger = {
+			NOT = { check_variable = { rebelliousness < 90 } }
+		}
+		localization_key = rebelliousness_color_dangerous
+	}
+	text = { localization_key = rebelliousness_color_undefined }
+}

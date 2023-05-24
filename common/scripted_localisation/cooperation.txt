@@ -1,0 +1,53 @@
+defined_text = {
+	name = GetCooperationStatus
+	text = {
+		trigger = { tag = SOV.chosen_country }
+		localization_key = "cooperation_status_you"
+	}
+	text = {
+		trigger = { check_variable = { country_relation = 3 } }
+		localization_key = "cooperation_status_yes"
+	}
+	text = { localization_key = "cooperation_status_no" }
+}
+#defined_text = {
+#	name = GetCooperatingWithName1
+#	text = {
+#		trigger = { has_variable = coop_with^0 }
+#		localization_key = SRP_cooperates_with1
+#	}
+#}
+#defined_text = {
+#	name = GetComma1IfCoopsWith2
+#	text = {
+#		trigger = {
+#			has_variable = coop_with^0
+#			has_variable = coop_with^1
+#		}
+#		localization_key = COMBAT_DETAIL_TRAIT_SEPARATOR
+#	}
+#}
+#defined_text = {
+#	name = GetCooperatingWithName2
+#	text = {
+#		trigger = { has_variable = coop_with^1 }
+#		localization_key = SRP_cooperates_with2
+#	}
+#}
+#defined_text = {
+#	name = GetComma2IfCoopsWith3
+#	text = {
+#		trigger = {
+#			has_variable = coop_with^1
+#			has_variable = coop_with^2
+#		}
+#		localization_key = COMBAT_DETAIL_TRAIT_SEPARATOR
+#	}
+#}
+#defined_text = {
+#	name = GetCooperatingWithName3
+#	text = {
+#		trigger = { has_variable = coop_with^2 }
+#		localization_key = SRP_cooperates_with3
+#	}
+#}

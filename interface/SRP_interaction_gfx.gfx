@@ -1,0 +1,62 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_flag_frame"
+		texturefile = "gfx/interface/SRP_flag_frame.dds"
+		noOfFrames = 3
+	}
+	spriteType = {
+		name = "GFX_overview_tab"
+		texturefile = "gfx/interface/SRP_overview.dds"
+		noOfFrames = 2
+	}
+	spriteType = {
+		name = "GFX_details_tab"
+		texturefile = "gfx/interface/SRP_details.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_flag_UKR_medium"
+		texturefile = "gfx/flags/medium/UKR.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_BLR_medium"
+		texturefile = "gfx/flags/medium/BLR.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_GEO_medium"
+		texturefile = "gfx/flags/medium/GEO.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_ARM_medium"
+		texturefile = "gfx/flags/medium/ARM.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_AZR_medium"
+		texturefile = "gfx/flags/medium/AZR_democratic.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_KAZ_medium"
+		texturefile = "gfx/flags/medium/KAZ_democratic.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_UZB_medium"
+		texturefile = "gfx/flags/medium/UZB_democratic.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_TMS_medium"
+		texturefile = "gfx/flags/medium/TMS_democratic.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_KYR_medium"
+		texturefile = "gfx/flags/medium/KYR_democratic.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_TAJ_medium"
+		texturefile = "gfx/flags/medium/TAJ_democratic.tga"
+	}
+	spriteType = {
+		name = "GFX_flag_TAN_medium"
+		texturefile = "gfx/flags/medium/TAN_communism.tga"
+	}
+}

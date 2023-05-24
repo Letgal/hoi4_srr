@@ -1,0 +1,1012 @@
+SRP_interaction_dec_cat = {
+### SSR INTERACTION ###
+#SRP_debug_clear_interaction_choice_flags = { # Move this choice into the scripted GUI buttons under the AZR flag (expand the window for this)
+#	visible = { is_debug = yes }
+#	available = {
+#		OR = {
+#			has_country_flag = SRP_majority_side_flag
+#			has_country_flag = SRP_minority_side_flag
+#		}
+#	}
+#	complete_effect = {
+#		if = {
+#			limit = { has_country_flag = SRP_majority_side_flag }
+#			custom_effect_tooltip = debug_clear_majority_flag
+#			clr_country_flag = SRP_majority_side_flag
+#		}
+#		if = {
+#			limit = { has_country_flag = SRP_minority_side_flag }
+#			custom_effect_tooltip = debug_clear_minority_flag
+#			clr_country_flag = SRP_minority_side_flag
+#		}
+#	}
+#}
+#SRP_majority_side = {
+#	icon = oppression
+#	visible = { NOT = { has_country_flag = SRP_majority_side_flag has_country_flag = SRP_minority_side_flag } }
+#	available = { any_owned_state = { NOT = { is_core_of = ROOT } } }
+#	complete_effect = { set_country_flag = SRP_majority_side_flag }
+#}
+#SRP_minority_side = {
+#	icon = generic_nationalism
+#	visible = { NOT = { has_country_flag = SRP_majority_side_flag has_country_flag = SRP_minority_side_flag } }
+#	available = { any_owned_state = { NOT = { is_core_of = ROOT } } }
+#	complete_effect = { set_country_flag = SRP_minority_side_flag }
+#}
+### SSR NATIONAL RESISTANCE ###
+SRP_debug_establish_rescap_instant = {
+	visible = {
+		is_debug = yes
+		#has_country_flag = SRP_minority_side_flag
+		has_chosen_country = no
+		has_chosen_rescap = no
+		if = {
+			limit = { FROM = { OR = { state = 202 state = 221 state = 192 state = 91 } } }
+			NOT = { country_exists = UKR }
+		}
+		else_if = {
+			limit = { FROM = { OR = { state = 206 state = 241 state = 94 } } }
+			NOT = { country_exists = BLR }
+		}
+		else_if = {
+			limit = { FROM = { state = 231 } }
+			NOT = { country_exists = GEO }
+		}
+		else_if = {
+			limit = { FROM = { state = 230 } }
+			NOT = { country_exists = ARM }
+		}
+		else_if = {
+			limit = { FROM = { state = 229 } }
+			NOT = { country_exists = AZR }
+		}
+		else_if = {
+			limit = { FROM = { OR = { state = 586 state = 588 state = 406 } } }
+			NOT = { country_exists = KAZ }
+		}
+		else_if = {
+			limit = { FROM = { state = 405 } }
+			NOT = { country_exists = UZB }
+		}
+		else_if = {
+			limit = { FROM = { state = 584 } }
+			NOT = { country_exists = TMS }
+		}
+		else_if = {
+			limit = { FROM = { state = 732 } }
+			NOT = { country_exists = KYR }
+		}
+		else_if = {
+			limit = { FROM = { state = 742 } }
+			NOT = { country_exists = TAJ }
+		}
+		#else_if = {
+		#	limit = { FROM = { state = 329 } }
+		#	NOT = { country_exists = TAN }
+		#}
+	}
+	available = {
+		OR = {
+			has_chosen_country = no
+			has_chosen_rescap = no
+		}
+		owns_state = FROM
+		controls_state = FROM
+	}
+	state_target = yes
+	targets = { 202 221 192 91 206 241 94 231 230 229 586 588 406 405 584 732 742 329 }
+	on_map_mode = map_only
+	fire_only_once = yes
+	complete_effect = {
+		custom_effect_tooltip = SRP_establish_rescap_tt
+		if = {
+			limit = { FROM = { OR = { state = 202 state = 221 state = 192 state = 91 } } }
+			set_variable = { chosen_country = UKR.id }
+		}
+		else_if = {
+			limit = { FROM = { OR = { state = 206 state = 241 state = 94 } } }
+			set_variable = { chosen_country = BLR.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 231 } }
+			set_variable = { chosen_country = GEO.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 230 } }
+			set_variable = { chosen_country = ARM.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 229 } }
+			set_variable = { chosen_country = AZR.id }
+		}
+		else_if = {
+			limit = { FROM = { OR = { state = 586 state = 588 state = 406 } } }
+			set_variable = { chosen_country = KAZ.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 405 } }
+			set_variable = { chosen_country = UZB.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 584 } }
+			set_variable = { chosen_country = TMS.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 732 } }
+			set_variable = { chosen_country = KYR.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 742 } }
+			set_variable = { chosen_country = TAJ.id }
+		}
+		#else_if = {
+		#	limit = { FROM = { state = 329 } }
+		#	set_variable = { chosen_country = TAN.id }
+		#}
+		set_variable = { chosen_rescap = FROM }
+		var:chosen_country = {
+			set_country_flag = has_resistance_movement
+			set_variable = { country_relation = 2 }
+			add_to_variable = { tooltip = add_popular_support popular_support = 15 }
+		}
+		FROM = { set_state_flag = rescap_state set_state_flag = infiltrated_state }
+	}
+}
+SRP_debug_clear_chosen_country_and_rescap = {
+	visible = {
+		is_debug = yes
+		#has_country_flag = SRP_minority_side_flag
+		OR = { has_chosen_country = yes has_chosen_rescap = yes }
+	}
+	available = { OR = { has_chosen_country = yes has_chosen_rescap = yes } }
+	highlight_states = { highlight_state_targets = { state = chosen_rescap } }
+	complete_effect = {
+		if = {
+			limit = { has_chosen_country = yes }
+			custom_effect_tooltip = debug_clear_chosen_country
+			clear_variable = chosen_country
+		}
+		if = {
+			limit = { has_chosen_rescap = yes }
+			custom_effect_tooltip = debug_clear_chosen_rescap
+			clear_variable = chosen_rescap
+			hidden_effect = {
+				every_state = {
+					limit = { has_state_flag = rescap_state }
+					clr_state_flag = rescap_state
+				}
+			}
+		}
+		if = {
+			limit = { has_variable = chosen_country:popular_support }
+			clear_variable = chosen_country:popular_support
+		}
+	}
+}
+SRP_debug_clear_cooperations = {
+	visible = {
+		is_debug = yes
+		#has_country_flag = SRP_minority_side_flag
+		var:chosen_country = { OR = {
+			has_country_flag = cooperates_with_UKR
+			has_country_flag = cooperates_with_BLR
+			has_country_flag = cooperates_with_GEO
+			has_country_flag = cooperates_with_ARM
+			has_country_flag = cooperates_with_AZR
+			has_country_flag = cooperates_with_KAZ
+			has_country_flag = cooperates_with_UZB
+			has_country_flag = cooperates_with_TMS
+			has_country_flag = cooperates_with_KYR
+			has_country_flag = cooperates_with_TAJ
+		} }
+	}
+	available = {
+		var:chosen_country = { OR = {
+			has_country_flag = cooperates_with_UKR
+			has_country_flag = cooperates_with_BLR
+			has_country_flag = cooperates_with_GEO
+			has_country_flag = cooperates_with_ARM
+			has_country_flag = cooperates_with_AZR
+			has_country_flag = cooperates_with_KAZ
+			has_country_flag = cooperates_with_UZB
+			has_country_flag = cooperates_with_TMS
+			has_country_flag = cooperates_with_KYR
+			has_country_flag = cooperates_with_TAJ
+		} }
+	}
+	complete_effect = {
+		var:chosen_country = { 
+			if = {
+				limit = { has_country_flag = cooperates_with_UKR }
+				custom_effect_tooltip = debug_clear_coop_with_UKR
+				clr_country_flag = cooperates_with_UKR
+			}
+			if = {
+				limit = { has_country_flag = cooperates_with_BLR }
+				custom_effect_tooltip = debug_clear_coop_with_BLR
+				clr_country_flag = cooperates_with_BLR
+			}
+			if = {
+				limit = { has_country_flag = cooperates_with_GEO }
+				custom_effect_tooltip = debug_clear_coop_with_GEO
+				clr_country_flag = cooperates_with_GEO
+			}
+			if = {
+				limit = { has_country_flag = cooperates_with_ARM }
+				custom_effect_tooltip = debug_clear_coop_with_ARM
+				clr_country_flag = cooperates_with_ARM
+			}
+			if = {
+				limit = { has_country_flag = cooperates_with_AZR }
+				custom_effect_tooltip = debug_clear_coop_with_AZR
+				clr_country_flag = cooperates_with_AZR
+			}
+			if = {
+				limit = { has_country_flag = cooperates_with_KAZ }
+				custom_effect_tooltip = debug_clear_coop_with_KAZ
+				clr_country_flag = cooperates_with_KAZ
+			}
+			if = {
+				limit = { has_country_flag = cooperates_with_UZB }
+				custom_effect_tooltip = debug_clear_coop_with_UZB
+				clr_country_flag = cooperates_with_UZB
+			}
+			if = {
+				limit = { has_country_flag = cooperates_with_TMS }
+				custom_effect_tooltip = debug_clear_coop_with_TMS
+				clr_country_flag = cooperates_with_TMS
+			}
+			if = {
+				limit = { has_country_flag = cooperates_with_KYR }
+				custom_effect_tooltip = debug_clear_coop_with_KYR
+				clr_country_flag = cooperates_with_KYR
+			}
+			if = {
+				limit = { has_country_flag = cooperates_with_TAJ }
+				custom_effect_tooltip = debug_clear_coop_with_TAJ
+				clr_country_flag = cooperates_with_TAJ
+			}
+		}
+	}
+}
+SRP_establish_rescap = {
+	icon = SOV_place_hq
+	visible = {
+		#has_country_flag = SRP_minority_side_flag
+		has_chosen_country = no
+		has_chosen_rescap = no
+		owns_state = FROM
+		FROM = { is_core_of_SSR = yes }
+		if = {
+			limit = { FROM = { OR = { state = 202 state = 221 state = 192 state = 91 } } }
+			NOT = { country_exists = UKR }
+		}
+		else_if = {
+			limit = { FROM = { OR = { state = 206 state = 241 state = 94 } } }
+			NOT = { country_exists = BLR }
+		}
+		else_if = {
+			limit = { FROM = { state = 231 } }
+			NOT = { country_exists = GEO }
+		}
+		else_if = {
+			limit = { FROM = { state = 230 } }
+			NOT = { country_exists = ARM }
+		}
+		else_if = {
+			limit = { FROM = { state = 229 } }
+			NOT = { country_exists = AZR }
+		}
+		else_if = {
+			limit = { FROM = { OR = { state = 586 state = 588 state = 406 } } }
+			NOT = { country_exists = KAZ }
+		}
+		else_if = {
+			limit = { FROM = { state = 405 } }
+			NOT = { country_exists = UZB }
+		}
+		else_if = {
+			limit = { FROM = { state = 584 } }
+			NOT = { country_exists = TMS }
+		}
+		else_if = {
+			limit = { FROM = { state = 732 } }
+			NOT = { country_exists = KYR }
+		}
+		else_if = {
+			limit = { FROM = { state = 742 } }
+			NOT = { country_exists = TAJ }
+		}
+		#else_if = {
+		#	limit = { FROM = { state = 329 } }
+		#	NOT = { country_exists = TAN }
+		#}
+	}
+	available = {
+		has_chosen_country = no
+		OR = {
+			NOT = { country_exists = UKR }
+			NOT = { country_exists = BLR }
+			NOT = { country_exists = GEO }
+			NOT = { country_exists = ARM }
+			NOT = { country_exists = AZR }
+			NOT = { country_exists = KAZ }
+			NOT = { country_exists = UZB }
+			NOT = { country_exists = TMS }
+			NOT = { country_exists = KYR }
+			NOT = { country_exists = TAJ }
+			#NOT = { country_exists = TAN }
+		}
+		controls_state = FROM
+		FROM = {
+			custom_trigger_tooltip = {
+				tooltip = required_core_of_list
+				is_core_of_SSR = yes
+			}
+		}
+	}
+	cost = 14
+	state_target = yes
+	targets = { 202 221 192 91 206 241 94 231 230 229 586 588 406 405 584 732 742 329 } # Which state corresponds to which country can be seen in effects below
+	on_map_mode = map_only
+	fire_only_once = yes
+	days_remove = 14
+	remove_effect = {
+		custom_effect_tooltip = SRP_establish_rescap_tt
+		if = {
+			limit = { FROM = { OR = { state = 202 state = 221 state = 192 state = 91 } } }
+			set_variable = { chosen_country = UKR.id }
+		}
+		else_if = {
+			limit = { FROM = { OR = { state = 206 state = 241 state = 94 } } }
+			set_variable = { chosen_country = BLR.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 231 } }
+			set_variable = { chosen_country = GEO.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 230 } }
+			set_variable = { chosen_country = ARM.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 229 } }
+			set_variable = { chosen_country = AZR.id }
+		}
+		else_if = {
+			limit = { FROM = { OR = { state = 586 state = 588 state = 406 } } }
+			set_variable = { chosen_country = KAZ.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 405 } }
+			set_variable = { chosen_country = UZB.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 584 } }
+			set_variable = { chosen_country = TMS.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 732 } }
+			set_variable = { chosen_country = KYR.id }
+		}
+		else_if = {
+			limit = { FROM = { state = 742 } }
+			set_variable = { chosen_country = TAJ.id }
+		}
+		#else_if = {
+		#	limit = { FROM = { state = 329 } }
+		#	set_variable = { chosen_country = TAN.id }
+		#}
+		set_variable = { chosen_rescap = FROM }
+		var:chosen_country = {
+			set_country_flag = has_resistance_movement
+			add_to_variable = { tooltip = add_popular_support popular_support = 15 }
+		}
+		FROM = { set_state_flag = infiltrated_state set_state_flag = rescap_state }
+	}
+}
+SRP_infiltrate_state = {
+	icon = infiltrate_state
+	visible = {
+		#has_country_flag = SRP_minority_side_flag
+		has_chosen_country = yes
+		has_chosen_rescap = yes
+		owns_state = FROM
+		var:chosen_country = {
+			FROM = {
+				is_core_of = PREV
+				NOT = { has_state_flag = infiltrated_state }
+				any_neighbor_state = { has_state_flag = infiltrated_state }
+			}
+		}
+		NOT = { has_decision = SRP_proclaim_independence }
+	}
+	available = {
+		custom_trigger_tooltip = { tooltip = infiltrating_states_at_most_2 check_variable = { infiltrating_states < 2 } }
+		var:chosen_country = {
+			FROM = {
+				is_core_of = PREV
+				NOT = { has_state_flag = infiltrated_state }
+			}
+		}
+	}
+	cost = 14
+	state_target = yes
+	target_trigger = {
+		FROM = {
+			OR = {
+				region = 130
+				region = 131
+				region = 134
+				region = 136
+				region = 137
+				region = 152
+			}
+		}
+	}
+	on_map_mode = map_only
+	complete_effect = { add_to_variable = { infiltrating_states = 1 } }
+	days_remove = 14
+	remove_effect = {
+		subtract_from_variable = { infiltrating_states = 1 }
+		add_to_variable = { tooltip = add_popular_support chosen_country:popular_support = 5 }
+		FROM = { custom_effect_tooltip = state_will_be_infiltrated set_state_flag = infiltrated_state }
+	}
+}
+#SOV_activate_local_police_force = {
+#	icon = oppression
+#	activation = {
+#		has_chosen_country = yes
+#		var:chosen_country = { core_resistance > 19.999 }
+#	}
+#	cancel_trigger = {
+#		OR = {
+#			has_chosen_country = no
+#			var:chosen_country = { core_resistance < 20 }
+#		}
+#	}
+#	days_mission_timeout = 14
+#	is_good = no
+#	timeout_effect = {
+#		set_country_flag = SOV_local_police_force_activated
+#		custom_effect_tooltip = dummy_tt
+#	}
+#}
+SRP_spread_propaganda_nationalist = {
+	icon = eng_propaganda_campaigns
+	visible = {
+		has_chosen_country = yes
+		has_chosen_rescap = yes
+	}
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = popular_support_less_than_100
+			check_variable = { chosen_country:popular_support < 100 }
+		}
+	}
+	cost = 15
+	days_re_enable = 30
+	complete_effect = {
+		add_to_variable = { tooltip = add_popular_support chosen_country:popular_support = 5 }
+		random = {
+			chance = 10
+			country_event = soviet_republics.1
+		}
+	}
+}
+SRP_spread_propaganda_anti_SOV = {
+	icon = eng_propaganda_campaigns
+	visible = {
+		has_chosen_country = yes
+		has_chosen_rescap = yes
+	}
+	available = {
+		NOT = { has_war_support < 0.25 }
+		custom_trigger_tooltip = {
+			tooltip = popular_support_less_than_100
+			check_variable = { chosen_country:popular_support < 100 }
+		}
+	}
+	cost = 15
+	days_re_enable = 30
+	complete_effect = {
+		add_to_variable = { tooltip = add_popular_support chosen_country:popular_support = 5 }
+		random = {
+			chance = 75
+			add_war_support = -0.1
+		}
+		random = {
+			chance = 25
+			add_political_power = -15
+			country_event = soviet_republics.1
+		}
+	}
+}
+SRP_train_national_army_units = {
+	icon = generic_military
+	visible = {
+		#has_country_flag = SRP_minority_side_flag
+		has_chosen_country = yes
+		has_completed_focus = SOV_train_national_army_units_focus
+		FROM = {
+			#is_core_of = KAZ
+			has_state_flag = infiltrated_state
+			NOT = { has_state_flag = recruiting_in_state }
+			check_variable = { created_units_national < 3 } # Disappears when you recruit 3 units
+		}
+	}
+	available = {
+		has_completed_focus = SOV_train_national_army_units_focus
+		custom_trigger_tooltip = {
+			tooltip = has_recruited_units_at_most_3
+			check_variable = { FROM.created_units_national < 3 } # Disappears when you recruit 3 units
+		}
+	}
+	custom_cost_trigger = { command_power > 13.999 }
+	custom_cost_text = decision_cost_CP_14
+	state_target = yes
+	#targets = { 202 221 192 91 206 241 94 231 230 229 586 588 406 405 584 732 742 329 }
+	on_map_mode = map_only
+	complete_effect = {
+		hidden_effect = { add_command_power = -14 }
+		FROM = { set_state_flag = recruiting_in_state }
+	}
+	days_remove = 14
+	remove_effect = {
+		add_to_variable = { FROM.created_units_national = 1 tooltip = SRP_train_national_army_units_tt }
+		FROM = { clr_state_flag = recruiting_in_state }
+	}
+}
+SRP_train_volunteer_units = {
+	icon = generic_military
+	visible = {
+		#has_country_flag = SRP_minority_side_flag
+		has_chosen_country = yes
+		has_completed_focus = SOV_train_national_army_units_focus
+		FROM = {
+			has_state_flag = infiltrated_state
+			NOT = { has_state_flag = recruiting_in_state }
+			check_variable = { created_units_volunteer < 5 } # Disappears when you recruit 3 units
+		}
+	}
+	available = {
+		has_completed_focus = SOV_train_national_army_units_focus
+		custom_trigger_tooltip = {
+			tooltip = has_recruited_units_at_most_5
+			check_variable = { FROM.created_units_volunteer < 5 } # Disappears when you recruit 3 units
+		}
+	}
+	custom_cost_trigger = { command_power > 13.999 }
+	custom_cost_text = decision_cost_CP_14
+	state_target = yes
+	#targets = { 202 221 192 91 206 241 94 231 230 229 586 588 406 405 584 732 742 329 }
+	on_map_mode = map_only
+	complete_effect = {
+		hidden_effect = { add_command_power = -14 }
+		FROM = { set_state_flag = recruiting_in_state }
+	}
+	days_remove = 14
+	remove_effect = {
+		add_to_variable = { FROM.created_units_volunteer = 1 tooltip = SRP_train_volunteer_units_tt }
+		FROM = { clr_state_flag = recruiting_in_state }
+	}
+}
+SRP_start_resistance_in_POL = {
+	icon = generic_civil_support
+	visible = {
+		OR = {
+			check_variable = { chosen_country = UKR }
+			check_variable = { chosen_country = BLR }
+		}
+		POL = {
+			any_owned_state = {
+				OR = { is_core_of = UKR is_core_of = BLR }
+			}
+		}
+	}
+	available = {
+		POL = {
+			any_owned_state = {
+				OR = { is_core_of = UKR is_core_of = BLR }
+			}
+		}
+	}
+	custom_cost_trigger = { has_political_power > 89 has_equipment = { infantry_equipment > 999 } }
+	custom_cost_text = decision_cost_PP_90_IE_1000
+	fire_only_once = yes
+	complete_effect = { hidden_effect = { add_political_power = -90 add_equipment_to_stockpile = { type = infantry_equipment amount = -1000 } } }
+	days_remove = 30
+	remove_effect = {
+		var:chosen_country = {
+			POL = {
+				every_owned_state = {
+					limit = { is_core_of = PREV.PREV }
+					remove_core_of = PREV
+					start_resistance = PREV.PREV
+				}
+			}
+		}
+	} 
+}
+SRP_proclaim_independence = {
+	icon = generic_independence
+	visible = {
+		#has_country_flag = SRP_minority_side_flag
+		has_chosen_country = yes
+	}
+	available = {
+		#var:chosen_country = { core_resistance = { occupied_country_tag = THIS value > 50 } }
+		var:chosen_country = {
+			custom_trigger_tooltip = { tooltip = has_at_least_30_popular_support check_variable = { var = popular_support value = 30 } }
+			custom_trigger_tooltip = { tooltip = has_at_least_60_rebelliousness check_variable = { var = rebelliousness value = 60 } }
+		}
+	}
+	highlight_states = { highlight_color_while_active = 1 }
+	days_remove = 7
+	remove_effect = {
+		hidden_effect = { release = var:chosen_country }
+		var:chosen_country = {
+			declare_war_on = { target = ROOT type = independence_wargoal }
+			set_capital = { state = SOV.chosen_rescap }
+			every_owned_state = {
+				limit = { NOT = { has_state_flag = infiltrated_state } }
+				transfer_state_to = ROOT
+			}
+			add_ideas = SRP_disorganized_armed_forces
+			add_timed_idea = { idea = SRP_nationalism days = 120 }
+			set_country_flag = SRP_proclaimed_independence # If country survives for at least 90 days, it can try to offer white peace to the Soviet Union
+			every_owned_state = { add_claim_by = ROOT } custom_effect_tooltip = SOV_gets_claims
+			custom_effect_tooltip = others_will_rise
+			every_possible_country = {
+				limit = {
+					check_variable = { var = THIS.rebelliousness value = 60 }
+					has_country_flag = cooperates_with_@PREV
+				}
+				hidden_effect = { ROOT = { release = PREV } }
+				declare_war_on = { target = ROOT type = independence_wargoal }
+				hidden_effect = {
+					add_ideas = SRP_disorganized_armed_forces
+					add_timed_idea = { idea = SRP_nationalism days = 120 }
+				}
+				custom_effect_tooltip = country_gets_idea1
+				custom_effect_tooltip = country_gets_idea2
+				set_country_flag = SRP_proclaimed_independence
+				add_opinion_modifier = { target = PREV modifier = resistance_friend }
+				reverse_add_opinion_modifier = { target = PREV modifier = resistance_friend }
+				diplomatic_relation = { country = PREV relation = military_access active = yes }
+				#ROOT = { var:chosen_country = {
+				#	add_opinion_modifier = { target = PREV.PREV modifier = resistance_friend }
+				#	diplomatic_relation = { country = PREV.PREV relation = military_access active = yes }
+				#} }
+			}
+			## Writing each country individually because it's not possible to give an opinion modifier and military access by a chosen country to multiple countries at once
+			#if = {
+			#	limit = {
+			#		var:chosen_country = { has_variable = cooperating_country1 }
+			#		var:cooperating_country1 = {
+			#			check_variable = { var = THIS.rebelliousness value = 60 }
+			#			has_country_flag = cooperates_with_@PREV
+			#		}
+			#	}
+			#	var:cooperating_country1 = {
+			#		hidden_effect = { ROOT = { release = PREV } }
+			#		declare_war_on = { target = ROOT type = independence_wargoal }
+			#		hidden_effect = {
+			#			add_ideas = SRP_disorganized_armed_forces
+			#			add_timed_idea = { idea = SRP_nationalism days = 120 }
+			#		}
+			#		custom_effect_tooltip = country_gets_idea1
+			#		custom_effect_tooltip = country_gets_idea2
+			#		set_country_flag = SRP_proclaimed_independence
+			#		add_opinion_modifier = { target = PREV modifier = resistance_friend }
+			#		diplomatic_relation = { country = PREV relation = military_access active = yes }
+			#		ROOT = { var:chosen_country = {
+			#			add_opinion_modifier = { target = PREV.PREV modifier = resistance_friend }
+			#			diplomatic_relation = { country = PREV.PREV relation = military_access active = yes }
+			#		} }
+			#	}
+			#}
+			hidden_effect = { change_tag_from = ROOT }
+		}
+		hidden_effect = {
+			every_state = {
+				limit = { has_state_flag = infiltrated_state }
+				clr_state_flag = infiltrated_state
+			}
+		}
+		clear_variable = infiltrating_states
+		clear_variable = chosen_rescap
+		clear_variable = chosen_country
+	}
+}
+}
+
+foreign_politics = {
+SRP_offer_peace = {
+	icon = border_war
+	allowed = {
+		OR = {
+			original_tag = UKR
+			original_tag = BLR
+			original_tag = GEO
+			original_tag = ARM
+			original_tag = AZR
+			original_tag = KAZ
+			original_tag = UZB
+			original_tag = TMS
+			original_tag = KYR
+			original_tag = TAJ
+			#original_tag = TAN
+		}
+	}
+	visible = { has_war_with = SOV }
+	available = {
+		has_war_with = SOV
+		OR = {
+			AND = {
+				custom_trigger_tooltip = { tooltip = SRP_proclaimed_independence_90_days has_country_flag = { flag = SRP_proclaimed_independence days > 89 } }
+				all_owned_state = { is_controlled_by = ROOT }
+			}
+			SOV = {
+				surrender_progress > 0.04
+				any_owned_state = { is_controlled_by = ROOT }
+			}
+		}
+	}
+	cost = 36
+	complete_effect = { SOV = { country_event = { id = soviet_republics.2 days = 1 } } }
+}
+}
+
+political_actions = {
+SRP_decommunization = {
+	icon = generic_break_treaty
+	visible = {
+		OR = {
+			original_tag = UKR
+			original_tag = KAZ
+			original_tag = KYR
+			original_tag = TAJ
+		}
+		owns_state = FROM
+		NOT = { has_government = communism }
+	}
+	available = { NOT = { has_government = communism } }
+	cost = 60
+	state_target = yes
+	targets = { 226 227 228 732 742 839 }
+	# 226 = Dnipropetrovsk
+	# 227 = Stalino
+	# 228 = Voroshilovgrad
+	# 732 = Pamir (has VP: Frunze)
+	# 742 = Stalinabad
+	# 839 = Kirovograd (only state)
+	on_map_mode = map_only
+	days_remove = 30
+	remove_effect = {
+		if = {
+			limit = { FROM = { state = 226 } }
+			FROM = {
+				set_state_flag = decommunized_state
+				set_state_name = Dnipro
+			}
+			set_province_name = { id = 11437 name = Dnipro }
+		}
+		else_if = {
+			limit = { FROM = { state = 227 } }
+			FROM = { set_state_flag = decommunized_state }
+			country_event = soviet_republics.3
+		}
+		else_if = {
+			limit = { FROM = { state = 228 } }
+			FROM = {
+				set_state_flag = decommunized_state
+				set_state_name = Luhansk
+			}
+			set_province_name = { id = 9461 name = Luhansk }
+		}
+		else_if = {
+			limit = { FROM = { state = 732 } }
+			FROM = { set_state_flag = decommunized_state }
+			set_province_name = { id = 12583 name = Bishkek }
+		}
+		else_if = {
+			limit = { FROM = { state = 742 } }
+			FROM = {
+				set_state_flag = decommunized_state
+				set_state_name = SOV_Dushanbe
+			}
+			set_province_name = { id = 1384 name = SOV_Dushanbe }
+		}
+		else_if = {
+			limit = { FROM = { state = 839 } }
+			FROM = {
+				set_state_flag = endonym_state
+				set_state_name = Kropyvnytskyi
+			}
+			#set_province_name = { id = 4333 name = Kropyvnytskyi }
+		}
+	}
+}
+SRP_destalinization = {
+	icon = generic_break_treaty
+	visible = {
+		OR = {
+			original_tag = UKR
+			original_tag = TAJ
+		}
+		owns_state = FROM
+		has_government = communism
+		NOT = { has_country_leader = { character = SOV_iosif_stalin ruling_only = yes } }
+		FROM = { NOT = { has_state_flag = destalinized_state } }
+	}
+	available = {
+		has_government = communism
+		NOT = { has_country_leader = { character = SOV_iosif_stalin ruling_only = yes } }
+		FROM = { NOT = { has_state_flag = destalinized_state } }
+	}
+	cost = 60
+	state_target = yes
+	targets = { 227 228 742 839 }
+	# 227 = Stalino
+	# 228 = Voroshilovgrad
+	# 742 = Stalinabad
+	# 839 = Kirovograd (only state)
+	on_map_mode = map_only
+	days_remove = 30
+	remove_effect = {
+		if = {
+			limit = { FROM = { state = 227 } }
+			FROM = { set_state_flag = destalinized_state }
+			country_event = soviet_republics.3
+		}
+		#else_if = {
+		#	limit = { FROM = { state = 228 } }
+		#	set_state_name = Luhansk
+		#	set_province_name = { id = 9461 name = Luhansk }
+		#}
+		else_if = {
+			limit = { FROM = { state = 742 } }
+			FROM = {
+				set_state_flag = destalinized_state
+				set_state_name = SOV_Dushanbe
+			}
+			set_province_name = { id = 1384 name = SOV_Dushanbe }
+		}
+		else_if = {
+			limit = { FROM = { state = 839 } }
+			FROM = {
+				set_state_flag = endonym_state
+				set_state_name = Kropyvnytskyi
+			}
+			#set_province_name = { id = 4333 name = Kropyvnytskyi }
+		}
+	}
+}
+SRP_endonyms = {
+	icon = generic_break_treaty
+	visible = {
+		original_tag = KAZ
+		owns_state = FROM
+		FROM = { NOT = { has_state_flag = endonym_state } }
+	}
+	available = {
+		owns_state = FROM
+		FROM = { NOT = { has_state_flag = endonym_state } }
+	}
+	cost = 60
+	state_target = yes
+	targets = { 402 404 406 407 583 586 588 589 590 }
+	# 402 = Aktyubinsk
+	# 404 = Kzyl-Orda
+	# 406 = Guryev
+	# 407 = Uralsk
+	# 583 = Kustanay
+	# 586 = Alma-Ata
+	# 588 = Semipalatinsk
+	# 589 = Ayaguz
+	on_map_mode = map_only
+	fire_only_once = yes
+	days_remove = 1
+	remove_effect = {
+		if = {
+			limit = { FROM = { state = 402 } }
+			FROM = {
+				set_state_flag = endonym_state
+				set_state_name = Aqtobe
+			}
+			set_province_name = { id = 7341 name = Aqtobe }
+		}
+		else_if = {
+			limit = { FROM = { state = 404 } }
+			FROM = {
+				set_state_flag = endonym_state
+				set_state_name = Kyzylorda
+			}
+			set_province_name = { id = 7597 name = Kyzylorda }
+		}
+		else_if = {
+			limit = { FROM = { state = 406 } }
+			FROM = {
+				set_state_flag = endonym_state
+				set_state_name = Atyrau
+			}
+			set_province_name = { id = 3618 name = Atyrau }
+		}
+		else_if = {
+			limit = { FROM = { state = 407 } }
+			FROM = {
+				set_state_flag = endonym_state
+				set_state_name = Oral
+			}
+			set_province_name = { id = 11537 name = Oral }
+		}
+		else_if = {
+			limit = { FROM = { state = 583 } }
+			FROM = {
+				set_state_flag = endonym_state
+				set_state_name = Qostanay
+			}
+			set_province_name = { id = 10312 name = Qostanay }
+		}
+		else_if = {
+			limit = { FROM = { state = 586 } }
+			FROM = {
+				set_state_flag = endonym_state
+				set_state_name = Almaty
+			}
+			set_province_name = { id = 1591 name = Almaty }
+		}
+		else_if = {
+			limit = { FROM = { state = 588 } }
+			FROM = {
+				set_state_flag = endonym_state
+				set_state_name = Semey
+			}
+			set_province_name = { id = 12594 name = Semey }
+		}
+		else_if = {
+			limit = { FROM = { state = 589 } }
+			FROM = {
+				set_state_flag = endonym_state
+				set_state_name = Ayagoz
+			}
+			set_province_name = { id = 1668 name = Ayagoz }
+		}
+		else_if = {
+			limit = { FROM = { state = 590 } }
+			FROM = {
+				set_state_flag = endonym_state
+				set_state_name = Akmola
+			}
+			set_province_name = { id = 4333 name = Akmola }
+		}
+	}
+}
+SRP_commemorate_pereyaslav = {
+	icon = generic_nationalism
+	visible = { 199 = { is_owned_and_controlled_by = UKR } }
+	available = {
+		199 = { is_owned_and_controlled_by = UKR }
+		OR = {
+			date > 1954.01.18
+			AND = {
+				has_war = no
+				has_war_support > 0.75
+			}
+		}
+	}
+	cost = 60
+	state_target = yes
+	targets = { 199 } # Proskurov
+	on_map_mode = map_and_decisions_view
+	fire_only_once = yes
+	days_remove = 30
+	remove_effect = {
+		add_war_support = 0.1
+		add_popularity = { ideology = ROOT popularity = 0.1 }
+		199 = { set_state_name = Khmelnytskyi }
+		set_province_name = { id = 3457 name = Khmelnytskyi }
+	}
+}
+}

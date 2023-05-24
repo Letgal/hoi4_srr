@@ -1,0 +1,18 @@
+state = {
+	id = 911
+	name = "STATE_911"
+	manpower = 1067336
+	state_category = city
+	history = {
+		owner = SOV
+		buildings = {
+			infrastructure = 2
+			6420 = { naval_base = 1 }
+		}
+		victory_points = { 6420 3 }
+		add_core_of = SOV
+		add_core_of = UKR
+	}
+	provinces={ 3421 3449 6420 6776 }
+	local_supplies = 0.0
+}

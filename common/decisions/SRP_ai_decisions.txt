@@ -1,0 +1,83 @@
+foreign_politics = {
+URG_resmov_number_tracking = { allowed = { original_tag = URG } available = { always = no } }
+URG_launch = {
+	allowed = { original_tag = URG }
+	visible = { is_ai = yes }
+	available = { SOV = { has_chosen_country = yes } }
+	days_re_enable = URG_launch_re_enable
+	complete_effect = { add_to_variable = { SOV.launched_resistance_movements = 1 } }
+}
+}
+
+### MISSIONS LAUNCHED BY THE URUGUAYAN AI ###
+SRP_interaction_dec_cat = {
+SRP_other_resistance_forces1 = {
+	icon = SOV_place_hq
+	activation = {
+		has_chosen_country = yes
+		check_variable = { launched_resistance_movements = 1 }
+	}
+	is_good = yes
+	days_mission_timeout = 1
+	timeout_effect = {
+		random_owned_state = {
+			limit = {
+				is_core_of_SSR = yes
+				NOT = { is_core_of = SOV.chosen_country }
+			}
+			set_state_flag = infiltrated_state
+			if = {
+				limit = { THIS = { is_core_of = UKR } }
+				custom_effect_tooltip = other_resmov_is_UKR
+				set_variable = { SOV.other_resmov1 = UKR.id }
+			}
+			else_if = {
+				limit = { THIS = { is_core_of = BLR } }
+				custom_effect_tooltip = other_resmov_is_BLR
+				set_variable = { SOV.other_resmov1 = BLR.id }
+			}
+			else_if = {
+				limit = { THIS = { is_core_of = GEO } }
+				custom_effect_tooltip = other_resmov_is_GEO
+				set_variable = { SOV.other_resmov1 = GEO.id }
+			}
+			else_if = {
+				limit = { THIS = { is_core_of = ARM } }
+				custom_effect_tooltip = other_resmov_is_ARM
+				set_variable = { SOV.other_resmov1 = ARM.id }
+			}
+			else_if = {
+				limit = { THIS = { is_core_of = AZR } }
+				custom_effect_tooltip = other_resmov_is_AZR
+				set_variable = { SOV.other_resmov1 = AZR.id }
+			}
+			else_if = {
+				limit = { THIS = { is_core_of = KAZ } }
+				custom_effect_tooltip = other_resmov_is_KAZ
+				set_variable = { SOV.other_resmov1 = KAZ.id }
+			}
+			else_if = {
+				limit = { THIS = { is_core_of = UZB } }
+				custom_effect_tooltip = other_resmov_is_UZB
+				set_variable = { SOV.other_resmov1 = UZB.id }
+			}
+			else_if = {
+				limit = { THIS = { is_core_of = TMS } }
+				custom_effect_tooltip = other_resmov_is_TMS
+				set_variable = { SOV.other_resmov1 = TMS.id }
+			}
+			else_if = {
+				limit = { THIS = { is_core_of = KYR } }
+				custom_effect_tooltip = other_resmov_is_KYR
+				set_variable = { SOV.other_resmov1 = KYR.id }
+			}
+			else_if = {
+				limit = { THIS = { is_core_of = TAJ } }
+				custom_effect_tooltip = other_resmov_is_TAJ
+				set_variable = { SOV.other_resmov1 = TAJ.id }
+			}
+		}
+		var:other_resmov1 = { add_to_variable = { tooltip = add_popular_support popular_support = 10 } }
+	}
+}
+}

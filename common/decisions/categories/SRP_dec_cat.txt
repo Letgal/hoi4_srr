@@ -1,0 +1,42 @@
+SRP_interaction_dec_cat = {
+	priority = 100
+	icon = GFX_decision_category_SOV_civil_war
+	scripted_gui = SRP_dec_cat_ui
+
+	allowed = { original_tag = SOV }
+
+	visible = {
+		is_ai = no
+		original_tag = SOV
+		#has_completed_focus = SOV_national_resistance
+		any_owned_state = {
+			OR = {
+				is_core_of = UKR
+				is_core_of = BLR
+				is_core_of = GEO
+				is_core_of = ARM
+				is_core_of = AZR
+				is_core_of = KAZ
+				is_core_of = UZB
+				is_core_of = TMS
+				is_core_of = KYR
+				is_core_of = TAJ
+				#is_core_of = TAN
+			}
+		}
+	}
+
+	#on_map_area = {
+	#	target_array = owned_states
+	#	target_trigger = { FROM = { has_state_flag = infiltrated_state } }
+	#	name = SRP_infiltrated_states_view
+	#	zoom = 250
+	#}
+
+	highlight_states = {
+		highlight_states_trigger = { has_state_flag = infiltrated_state }
+		highlight_color_before_active = 3
+	}
+
+	visible_when_empty = yes
+}

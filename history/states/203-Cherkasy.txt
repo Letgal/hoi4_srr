@@ -1,0 +1,15 @@
+state = {
+	id = 203
+	name = "STATE_203"
+	manpower = 1305190
+	state_category = town
+	history = {
+		victory_points = { 488 5 }
+		owner = SOV
+		buildings = { infrastructure = 3 industrial_complex = 1 }
+		add_core_of = SOV
+		add_core_of = UKR
+	}
+	provinces = { 434 458 488 9451 11409 11424 11438 11454 }
+	local_supplies = 0.0 
+}

@@ -1,0 +1,773 @@
+@COUNTRY_FLAG_COL1_X = 44
+@POPULAR_SUPPORT_TEXT_COL1_X = 78
+@REBELLIOUSNESS_TEXT_COL1_X = 144
+@HIGH_REBELLIOUSNESS_COL1_X = 216
+@COUNTRY_FLAG_COL2_X = 276
+@POPULAR_SUPPORT_TEXT_COL2_X = 310
+@REBELLIOUSNESS_TEXT_COL2_X = 376
+@HIGH_REBELLIOUSNESS_COL2_X = 448
+
+@TEXT_ROW1_Y = -2
+@FLAG_ROW1_Y = 13
+@TEXT_ROW2_Y = 40
+@FLAG_ROW2_Y = 55
+@TEXT_ROW3_Y = 82
+@FLAG_ROW3_Y = 97
+@TEXT_ROW4_Y = 124
+@FLAG_ROW4_Y = 139
+@TEXT_ROW5_Y = 164
+@FLAG_ROW5_Y = 179
+
+
+@COUNTRY_TEXT_COL1_X = 20
+@COUNTRY_TEXT_COL2_X = 252
+@COUNTRY_FLAG1_X = 276
+@COUNTRY_FLAG2_X = 328
+@COUNTRY_FLAG3_X = 380
+
+@COUNTRY_TITLE_ROW1_Y = -6
+@COUNTRY_VALUE_ROW1_Y = 11
+@COUNTRY_TITLE_ROW2_Y = 42
+@COUNTRY_VALUE_ROW2_Y = 59
+@COUNTRY_FLAG_ROW_Y = 80
+@COUNTRY_VALUE_ROW3_Y = 86
+
+
+guiTypes = {
+	containerWindowType = {
+		name = "SRP_dec_cat_ui_window"
+		position = { x = 0 y = 0 }
+		size = { width = 100% height = 240 }
+
+		buttonType = {
+			name = "overview_tab"
+			spriteType = "GFX_overview_tab"
+			position = { x = 17 y = 210 }
+			scale = 0.75
+		}
+
+		buttonType = {
+			name = "details_tab"
+			spriteType = "GFX_details_tab"
+			position = { x = 87 y = 210 }
+			scale = 0.75
+			pdx_tooltip = country_details_unlock_tt
+		}
+
+		### UKRAINE ###
+		iconType = {
+			name = "UKR_flag" # Add scr.loc. for the flags. And the glow when hovered over
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW1_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_UKR_flag_tt
+			pdx_tooltip_delayed = SRP_UKR_flag_tt1
+		}
+
+		iconType = {
+			name = "UKR_frame"
+			spriteType = "GFX_flag_frame"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW1_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "UKR_coop_button"
+			spriteType = "GFX_operations_make_resistance_contacts_map"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW1_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_UKR_coop_button_tt
+			pdx_tooltip_delayed = SRP_UKR_coop_button_tt1
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "UKR_popular_support"
+			position = { x = @POPULAR_SUPPORT_TEXT_COL1_X y = @TEXT_ROW1_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "[?UKR.popular_support|%%H0]"
+			format = left
+			pdx_tooltip = SRP_UKR_popular_support_tt
+			pdx_tooltip_delayed = popular_support_desc
+		}
+
+		instantTextBoxType = {
+			name = "UKR_rebelliousness"
+			position = { x = @REBELLIOUSNESS_TEXT_COL1_X y = @TEXT_ROW1_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "SRP_UKR_rebelliousness"
+			format = left
+			pdx_tooltip = SRP_UKR_rebelliousness_tt
+			pdx_tooltip_delayed = rebelliousness_desc
+		}
+
+		iconType = {
+			name = "UKR_uprising"
+			spriteType = "GFX_resistance_icon"
+			position = { x = @HIGH_REBELLIOUSNESS_COL1_X y = 11 }
+			centerposition = yes
+			pdx_tooltip = SRP_uprising_is_close_tt
+		}
+
+		### BELARUS ###
+		iconType = {
+			name = "BLR_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW2_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_BLR_flag_tt
+			pdx_tooltip_delayed = SRP_BLR_flag_tt1
+		}
+
+		iconType = {
+			name = "BLR_frame"
+			spriteType = "GFX_flag_frame"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW2_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "BLR_coop_button"
+			spriteType = "GFX_operations_make_resistance_contacts_map"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW2_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_BLR_coop_button_tt
+			pdx_tooltip_delayed = SRP_BLR_coop_button_tt1
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "BLR_popular_support"
+			position = { x = @POPULAR_SUPPORT_TEXT_COL1_X y = @TEXT_ROW2_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "[?BLR.popular_support|%%H0]"
+			format = left
+			pdx_tooltip = SRP_BLR_popular_support_tt
+			pdx_tooltip_delayed = popular_support_desc
+		}
+
+		instantTextBoxType = {
+			name = "BLR_rebelliousness"
+			position = { x = @REBELLIOUSNESS_TEXT_COL1_X y = @TEXT_ROW2_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "SRP_BLR_rebelliousness"
+			format = left
+			pdx_tooltip = SRP_BLR_rebelliousness_tt
+			pdx_tooltip_delayed = rebelliousness_desc
+		}
+
+		iconType = {
+			name = "BLR_uprising"
+			spriteType = "GFX_resistance_icon"
+			position = { x = @HIGH_REBELLIOUSNESS_COL1_X y = 53 }
+			centerposition = yes
+			pdx_tooltip = SRP_uprising_is_close_tt
+		}
+
+		### GEORGIA ###
+		iconType = {
+			name = "GEO_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW3_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_GEO_flag_tt
+			pdx_tooltip_delayed = SRP_GEO_flag_tt1
+		}
+
+		iconType = {
+			name = "GEO_frame"
+			spriteType = "GFX_flag_frame"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW3_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "GEO_coop_button"
+			spriteType = "GFX_operations_make_resistance_contacts_map"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW3_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_GEO_coop_button_tt
+			pdx_tooltip_delayed = SRP_GEO_coop_button_tt1
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "GEO_popular_support"
+			position = { x = @POPULAR_SUPPORT_TEXT_COL1_X y = @TEXT_ROW3_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "[?GEO.popular_support|%%H0]"
+			format = left
+			pdx_tooltip = SRP_GEO_popular_support_tt
+			pdx_tooltip_delayed = popular_support_desc
+		}
+
+		instantTextBoxType = {
+			name = "GEO_rebelliousness"
+			position = { x = @REBELLIOUSNESS_TEXT_COL1_X y = @TEXT_ROW3_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "SRP_GEO_rebelliousness"
+			format = left
+			pdx_tooltip = SRP_GEO_rebelliousness_tt
+			pdx_tooltip_delayed = rebelliousness_desc
+		}
+
+		iconType = {
+			name = "GEO_uprising"
+			spriteType = "GFX_resistance_icon"
+			position = { x = @HIGH_REBELLIOUSNESS_COL1_X y = 95 }
+			centerposition = yes
+			pdx_tooltip = SRP_uprising_is_close_tt
+		}
+
+		### ARMENIA ###
+		iconType = {
+			name = "ARM_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW4_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_ARM_flag_tt
+			pdx_tooltip_delayed = SRP_ARM_flag_tt1
+		}
+
+		iconType = {
+			name = "ARM_frame"
+			spriteType = "GFX_flag_frame"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW4_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "ARM_coop_button"
+			spriteType = "GFX_operations_make_resistance_contacts_map"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW4_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_ARM_coop_button_tt
+			pdx_tooltip_delayed = SRP_ARM_coop_button_tt1
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "ARM_popular_support"
+			position = { x = @POPULAR_SUPPORT_TEXT_COL1_X y = @TEXT_ROW4_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "[?ARM.popular_support|%%H0]"
+			format = left
+			pdx_tooltip = SRP_ARM_popular_support_tt
+			pdx_tooltip_delayed = popular_support_desc
+		}
+
+		instantTextBoxType = {
+			name = "ARM_rebelliousness"
+			position = { x = @REBELLIOUSNESS_TEXT_COL1_X y = @TEXT_ROW4_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "SRP_ARM_rebelliousness"
+			format = left
+			pdx_tooltip = SRP_ARM_rebelliousness_tt
+			pdx_tooltip_delayed = rebelliousness_desc
+		}
+
+		iconType = {
+			name = "ARM_uprising"
+			spriteType = "GFX_resistance_icon"
+			position = { x = @HIGH_REBELLIOUSNESS_COL1_X y = 137 }
+			centerposition = yes
+			pdx_tooltip = SRP_uprising_is_close_tt
+		}
+
+		### AZERBAIJAN ###
+		iconType = {
+			name = "AZR_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW5_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_AZR_flag_tt
+			pdx_tooltip_delayed = SRP_AZR_flag_tt1
+		}
+
+		iconType = {
+			name = "AZR_frame"
+			spriteType = "GFX_flag_frame"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW5_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "AZR_coop_button"
+			spriteType = "GFX_operations_make_resistance_contacts_map"
+			position = { x = @COUNTRY_FLAG_COL1_X y = @FLAG_ROW5_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_AZR_coop_button_tt
+			pdx_tooltip_delayed = SRP_AZR_coop_button_tt1
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "AZR_popular_support"
+			position = { x = @POPULAR_SUPPORT_TEXT_COL1_X y = @TEXT_ROW5_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "[?AZR.popular_support|%%H0]"
+			format = left
+			pdx_tooltip = SRP_AZR_popular_support_tt
+			pdx_tooltip_delayed = popular_support_desc
+		}
+
+		instantTextBoxType = {
+			name = "AZR_rebelliousness"
+			position = { x = @REBELLIOUSNESS_TEXT_COL1_X y = @TEXT_ROW5_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "SRP_AZR_rebelliousness"
+			format = left
+			pdx_tooltip = SRP_AZR_rebelliousness_tt
+			pdx_tooltip_delayed = rebelliousness_desc
+		}
+
+		iconType = {
+			name = "AZR_uprising"
+			spriteType = "GFX_resistance_icon"
+			position = { x = @HIGH_REBELLIOUSNESS_COL1_X y = 177 }
+			centerposition = yes
+			pdx_tooltip = SRP_uprising_is_close_tt
+		}
+
+		### KAZAKHSTAN ###
+		iconType = {
+			name = "KAZ_flag" # Add scr.loc. for the flags. And the glow when hovered over
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW1_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_KAZ_flag_tt
+			pdx_tooltip_delayed = SRP_KAZ_flag_tt1
+		}
+
+		iconType = {
+			name = "KAZ_frame"
+			spriteType = "GFX_flag_frame"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW1_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "KAZ_coop_button"
+			spriteType = "GFX_operations_make_resistance_contacts_map"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW1_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_KAZ_coop_button_tt
+			pdx_tooltip_delayed = SRP_KAZ_coop_button_tt1
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "KAZ_popular_support"
+			position = { x = @POPULAR_SUPPORT_TEXT_COL2_X y = @TEXT_ROW1_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "[?KAZ.popular_support|%%H0]"
+			format = left
+			pdx_tooltip = SRP_KAZ_popular_support_tt
+			pdx_tooltip_delayed = popular_support_desc
+		}
+
+		instantTextBoxType = {
+			name = "KAZ_rebelliousness"
+			position = { x = @REBELLIOUSNESS_TEXT_COL2_X y = @TEXT_ROW1_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "SRP_KAZ_rebelliousness"
+			format = left
+			pdx_tooltip = SRP_KAZ_rebelliousness_tt
+			pdx_tooltip_delayed = rebelliousness_desc
+		}
+
+		iconType = {
+			name = "KAZ_uprising"
+			spriteType = "GFX_resistance_icon"
+			position = { x = @HIGH_REBELLIOUSNESS_COL2_X y = 11 }
+			centerposition = yes
+			pdx_tooltip = SRP_uprising_is_close_tt
+		}
+
+		### UZBEKISTAN ###
+		iconType = {
+			name = "UZB_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW2_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_UZB_flag_tt
+			pdx_tooltip_delayed = SRP_UZB_flag_tt1
+		}
+
+		iconType = {
+			name = "UZB_frame"
+			spriteType = "GFX_flag_frame"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW2_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "UZB_coop_button"
+			spriteType = "GFX_operations_make_resistance_contacts_map"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW2_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_UZB_coop_button_tt
+			pdx_tooltip_delayed = SRP_UZB_coop_button_tt1
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "UZB_popular_support"
+			position = { x = @POPULAR_SUPPORT_TEXT_COL2_X y = @TEXT_ROW2_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "[?UZB.popular_support|%%H0]"
+			format = left
+			pdx_tooltip = SRP_UZB_popular_support_tt
+			pdx_tooltip_delayed = popular_support_desc
+		}
+
+		instantTextBoxType = {
+			name = "UZB_rebelliousness"
+			position = { x = @REBELLIOUSNESS_TEXT_COL2_X y = @TEXT_ROW2_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "SRP_UZB_rebelliousness"
+			format = left
+			pdx_tooltip = SRP_UZB_rebelliousness_tt
+			pdx_tooltip_delayed = rebelliousness_desc
+		}
+
+		iconType = {
+			name = "UZB_uprising"
+			spriteType = "GFX_resistance_icon"
+			position = { x = @HIGH_REBELLIOUSNESS_COL2_X y = 53 }
+			centerposition = yes
+			pdx_tooltip = SRP_uprising_is_close_tt
+		}
+
+		### TURKMENISTAN ###
+		iconType = {
+			name = "TMS_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW3_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_TMS_flag_tt
+			pdx_tooltip_delayed = SRP_TMS_flag_tt1
+		}
+
+		iconType = {
+			name = "TMS_frame"
+			spriteType = "GFX_flag_frame"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW3_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "TMS_coop_button"
+			spriteType = "GFX_operations_make_resistance_contacts_map"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW3_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_TMS_coop_button_tt
+			pdx_tooltip_delayed = SRP_TMS_coop_button_tt1
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "TMS_popular_support"
+			position = { x = @POPULAR_SUPPORT_TEXT_COL2_X y = @TEXT_ROW3_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "[?TMS.popular_support|%%H0]"
+			format = left
+			pdx_tooltip = SRP_TMS_popular_support_tt
+			pdx_tooltip_delayed = popular_support_desc
+		}
+
+		instantTextBoxType = {
+			name = "TMS_rebelliousness"
+			position = { x = @REBELLIOUSNESS_TEXT_COL2_X y = @TEXT_ROW3_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "SRP_TMS_rebelliousness"
+			format = left
+			pdx_tooltip = SRP_TMS_rebelliousness_tt
+			pdx_tooltip_delayed = rebelliousness_desc
+		}
+
+		iconType = {
+			name = "TMS_uprising"
+			spriteType = "GFX_resistance_icon"
+			position = { x = @HIGH_REBELLIOUSNESS_COL2_X y = 95 }
+			centerposition = yes
+			pdx_tooltip = SRP_uprising_is_close_tt
+		}
+
+		### KYRGYZSTAN ###
+		iconType = {
+			name = "KYR_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW4_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_KYR_flag_tt
+			pdx_tooltip_delayed = SRP_KYR_flag_tt1
+		}
+
+		iconType = {
+			name = "KYR_frame"
+			spriteType = "GFX_flag_frame"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW4_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "KYR_coop_button"
+			spriteType = "GFX_operations_make_resistance_contacts_map"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW4_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_KYR_coop_button_tt
+			pdx_tooltip_delayed = SRP_KYR_coop_button_tt1
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "KYR_popular_support"
+			position = { x = @POPULAR_SUPPORT_TEXT_COL2_X y = @TEXT_ROW4_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "[?KYR.popular_support|%%H0]"
+			format = left
+			pdx_tooltip = SRP_KYR_popular_support_tt
+			pdx_tooltip_delayed = popular_support_desc
+		}
+
+		instantTextBoxType = {
+			name = "KYR_rebelliousness"
+			position = { x = @REBELLIOUSNESS_TEXT_COL2_X y = @TEXT_ROW4_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "SRP_KYR_rebelliousness"
+			format = left
+			pdx_tooltip = SRP_KYR_rebelliousness_tt
+			pdx_tooltip_delayed = rebelliousness_desc
+		}
+
+		iconType = {
+			name = "KYR_uprising"
+			spriteType = "GFX_resistance_icon"
+			position = { x = @HIGH_REBELLIOUSNESS_COL2_X y = 137 }
+			centerposition = yes
+			pdx_tooltip = SRP_uprising_is_close_tt
+		}
+
+		### TAJIKISTAN ###
+		iconType = {
+			name = "TAJ_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW5_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_TAJ_flag_tt
+			pdx_tooltip_delayed = SRP_TAJ_flag_tt1
+		}
+
+		iconType = {
+			name = "TAJ_frame"
+			spriteType = "GFX_flag_frame"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW5_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "TAJ_coop_button"
+			spriteType = "GFX_operations_make_resistance_contacts_map"
+			position = { x = @COUNTRY_FLAG_COL2_X y = @FLAG_ROW5_Y }
+			centerposition = yes
+			pdx_tooltip = SRP_TAJ_coop_button_tt
+			pdx_tooltip_delayed = SRP_TAJ_coop_button_tt1
+			scale = 0.5
+		}
+
+		instantTextBoxType = {
+			name = "TAJ_popular_support"
+			position = { x = @POPULAR_SUPPORT_TEXT_COL2_X y = @TEXT_ROW5_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "[?TAJ.popular_support|%%H0]"
+			format = left
+			pdx_tooltip = SRP_TAJ_popular_support_tt
+			pdx_tooltip_delayed = popular_support_desc
+		}
+
+		instantTextBoxType = {
+			name = "TAJ_rebelliousness"
+			position = { x = @REBELLIOUSNESS_TEXT_COL2_X y = @TEXT_ROW5_Y }
+			font = "hoi_20"
+			maxWidth = 60 maxHeight = 26
+			text = "SRP_TAJ_rebelliousness"
+			format = left
+			pdx_tooltip = SRP_TAJ_rebelliousness_tt
+			pdx_tooltip_delayed = rebelliousness_desc
+		}
+
+		iconType = {
+			name = "TAJ_uprising"
+			spriteType = "GFX_resistance_icon"
+			position = { x = @HIGH_REBELLIOUSNESS_COL2_X y = 177 }
+			centerposition = yes
+			pdx_tooltip = SRP_uprising_is_close_tt
+		}
+
+		 ##  ##  #  # #  # ### ###  # #     ###  ### ###  ##  ### #    ##
+		#   #  # #  # ## #  #  #  # # #     #  # #    #  #  #  #  #   #  
+		#   #  # #  # # ##  #  ###   #      #  # ##   #  ####  #  #    # 
+		#   #  # #  # #  #  #  #  #  #      #  # #    #  #  #  #  #     #
+		 ##  ##   ##  #  #  #  #  #  #      ###  ###  #  #  # ### ### ## 
+
+		instantTextBoxType = {
+			name = COUNTRY_popular_support_title
+			position = { x = @COUNTRY_TEXT_COL1_X y = @COUNTRY_TITLE_ROW1_Y }
+			font = "hoi_20bs"
+			maxHeight = 20
+			text = popular_support_title
+			format = left
+			pdx_tooltip = popular_support_title
+			pdx_tooltip_delayed = popular_support_desc
+		}
+
+		instantTextBoxType = {
+			name = COUNTRY_popular_support_value
+			position = { x = @COUNTRY_TEXT_COL1_X y = @COUNTRY_VALUE_ROW1_Y }
+			font = "hoi_20"
+			maxHeight = 26
+			text = "[?chosen_country:popular_support|%%H0]"
+			format = left
+		}
+
+		instantTextBoxType = {
+			name = COUNTRY_rebelliousness_title
+			position = { x = @COUNTRY_TEXT_COL1_X y = @COUNTRY_TITLE_ROW2_Y }
+			font = "hoi_20bs"
+			maxHeight = 20
+			text = rebelliousness_title
+			format = left
+			pdx_tooltip = rebelliousness_title
+			pdx_tooltip_delayed = rebelliousness_desc
+		}
+
+		instantTextBoxType = {
+			name = COUNTRY_rebelliousness_value
+			position = { x = @COUNTRY_TEXT_COL1_X y = @COUNTRY_VALUE_ROW2_Y }
+			font = "hoi_20"
+			maxHeight = 26
+			text = rebelliousness_value
+			format = left
+		}
+
+		instantTextBoxType = {
+			name = COUNTRY_rebelliousness_daily
+			position = { x = @COUNTRY_TEXT_COL1_X y = @COUNTRY_VALUE_ROW3_Y }
+			font = "hoi_20bs"
+			maxHeight = 20
+			text = "[?chosen_country:rebelliousness_daily|=%%H] ([?chosen_country:rebelliousness_daily_base|=%%H])"
+			format = left
+			pdx_tooltip = rebelliousness_daily_tt
+		}
+
+		instantTextBoxType = {
+			name = "COUNTRY_resistance_political_power"
+			position = { x = @COUNTRY_TEXT_COL2_X y = @COUNTRY_TITLE_ROW1_Y }
+			font = "hoi_20bs"
+			maxHeight = 20
+			text = "resistance_political_power"
+			format = left
+			pdx_tooltip = resistance_political_power_tt
+		}
+
+		instantTextBoxType = {
+			name = COUNTRY_resistance_command_power
+			position = { x = 324 y = @COUNTRY_TITLE_ROW1_Y } # @COUNTRY_TEXT_COL2_X is 252
+			font = "hoi_20bs"
+			maxHeight = 20
+			text = resistance_command_power
+			format = left
+			pdx_tooltip = resistance_command_power_tt
+		}
+
+		instantTextBoxType = {
+			name = COUNTRY_cooperation
+			position = { x = @COUNTRY_TEXT_COL2_X y = @COUNTRY_TITLE_ROW2_Y }
+			font = "hoi_20bs"
+			maxHeight = 20
+			text = cooperation_title
+			format = left
+		}
+
+		iconType = {
+			name = COUNTRY_cooperating1
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG1_X y = @COUNTRY_FLAG_ROW_Y }
+			centerposition = yes
+			pdx_tooltip = cooperating1_name
+		}
+
+		iconType = {
+			name = COUNTRY_cooperating1_frame
+			spriteType = "GFX_flag_frame"
+			frame = 3
+			position = { x = @COUNTRY_FLAG1_X y = @COUNTRY_FLAG_ROW_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = COUNTRY_cooperating2
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG2_X y = @COUNTRY_FLAG_ROW_Y }
+			centerposition = yes
+			pdx_tooltip = cooperating2_name
+		}
+
+		iconType = {
+			name = COUNTRY_cooperating2_frame
+			spriteType = "GFX_flag_frame"
+			frame = 3
+			position = { x = @COUNTRY_FLAG2_X y = @COUNTRY_FLAG_ROW_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = COUNTRY_cooperating3
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = @COUNTRY_FLAG3_X y = @COUNTRY_FLAG_ROW_Y }
+			centerposition = yes
+			pdx_tooltip = cooperating3_name
+		}
+
+		iconType = {
+			name = COUNTRY_cooperating3_frame
+			spriteType = "GFX_flag_frame"
+			frame = 3
+			position = { x = @COUNTRY_FLAG3_X y = @COUNTRY_FLAG_ROW_Y }
+			centerposition = yes
+			alwaystransparent = yes
+		}
+	}
+}

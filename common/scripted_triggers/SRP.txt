@@ -1,0 +1,19 @@
+is_on_overview_tab = { check_variable = { overview_tab_state = 1 } }
+is_on_details_tab = { check_variable = { details_tab_state = 1 } }
+
+### ONE OF THE SOVIET REPUBLICS ###
+is_core_of_SSR = {
+	OR = {
+		is_core_of = UKR
+		is_core_of = BLR
+		is_core_of = GEO
+		is_core_of = ARM
+		is_core_of = AZR
+		is_core_of = KAZ
+		is_core_of = UZB
+		is_core_of = TMS
+		is_core_of = KYR
+		is_core_of = TAJ
+		#is_core_of = TAN
+	}
+}

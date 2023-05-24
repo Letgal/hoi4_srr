@@ -1,0 +1,15 @@
+state = {
+	id = 225
+	name = "STATE_225" # Sumy
+	manpower = 838280
+	state_category = town
+	history = {
+		victory_points = { 3520 3 }
+		owner = SOV
+		buildings = { infrastructure = 2 }
+		add_core_of = SOV
+		add_core_of = UKR
+	}
+	provinces = { 463 501 522 3455 3520 11462 }
+	local_supplies = 0.0
+}

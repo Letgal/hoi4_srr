@@ -1,0 +1,546 @@
+scripted_gui = {
+	SRP_dec_cat_ui = {
+		window_name = "SRP_dec_cat_ui_window"
+		context_type = decision_category
+
+		properties = {
+			overview_tab = { frame = overview_tab_state } details_tab = { frame = details_tab_state }
+			UKR_flag = { image = [UKR.GetFlag] } UKR_frame = { frame = UKR.country_relation }
+			BLR_flag = { image = [BLR.GetFlag] } BLR_frame = { frame = BLR.country_relation }
+			GEO_flag = { image = [GEO.GetFlag] } GEO_frame = { frame = GEO.country_relation }
+			ARM_flag = { image = [ARM.GetFlag] } ARM_frame = { frame = ARM.country_relation }
+			AZR_flag = { image = [AZR.GetFlag] } AZR_frame = { frame = AZR.country_relation }
+			KAZ_flag = { image = [KAZ.GetFlag] } KAZ_frame = { frame = KAZ.country_relation }
+			UZB_flag = { image = [UZB.GetFlag] } UZB_frame = { frame = UZB.country_relation }
+			TMS_flag = { image = [TMS.GetFlag] } TMS_frame = { frame = TMS.country_relation }
+			KYR_flag = { image = [KYR.GetFlag] } KYR_frame = { frame = KYR.country_relation }
+			TAJ_flag = { image = [TAJ.GetFlag] } TAJ_frame = { frame = TAJ.country_relation }
+			COUNTRY_cooperating1 = { image = [?chosen_country:coop_with^0.GetFlag] }
+			COUNTRY_cooperating2 = { image = [?chosen_country:coop_with^1.GetFlag] }
+			COUNTRY_cooperating3 = { image = [?chosen_country:coop_with^2.GetFlag] }
+		}
+
+		triggers = {
+			details_tab_click_enabled = { has_chosen_country = yes }
+			UKR_flag_visible = { is_on_overview_tab = yes }
+			UKR_frame_visible = { is_on_overview_tab = yes }
+			UKR_coop_button_visible = {
+				is_on_overview_tab = yes
+				has_chosen_country = yes
+				NOT = {
+					check_variable = { chosen_country = UKR }
+					var:chosen_country = {
+						OR = {
+							has_country_flag = cooperates_with_UKR
+							count_triggers = {
+								amount = 3
+								has_country_flag = cooperates_with_UKR has_country_flag = cooperates_with_BLR has_country_flag = cooperates_with_GEO has_country_flag = cooperates_with_ARM has_country_flag = cooperates_with_AZR
+								has_country_flag = cooperates_with_KAZ has_country_flag = cooperates_with_UZB has_country_flag = cooperates_with_TMS has_country_flag = cooperates_with_KYR has_country_flag = cooperates_with_TAJ
+							}
+						}
+					}
+				}
+			}
+			UKR_coop_button_click_enabled = {
+				UKR = { if = {
+					limit = { exists = yes }
+					has_offensive_war_with = SOV
+					else = { NOT = { check_variable = { rebelliousness < 20 } } }
+				} }
+			}
+			UKR_popular_support_visible = { is_on_overview_tab = yes }
+			UKR_rebelliousness_visible = { is_on_overview_tab = yes }
+			UKR_uprising_visible = {
+				is_on_overview_tab = yes
+				UKR = { OR = {
+					NOT = { check_variable = { rebelliousness < 80 } }
+					has_country_flag = SRP_proclaimed_independence
+				} }
+			}
+
+			BLR_flag_visible = { is_on_overview_tab = yes }
+			BLR_frame_visible = { is_on_overview_tab = yes }
+			BLR_coop_button_visible = {
+				is_on_overview_tab = yes
+				has_chosen_country = yes
+				NOT = {
+					check_variable = { chosen_country = BLR }
+					var:chosen_country = {
+						OR = {
+							has_country_flag = cooperates_with_BLR
+							count_triggers = {
+								amount = 3
+								has_country_flag = cooperates_with_UKR has_country_flag = cooperates_with_BLR has_country_flag = cooperates_with_GEO has_country_flag = cooperates_with_ARM has_country_flag = cooperates_with_AZR
+								has_country_flag = cooperates_with_KAZ has_country_flag = cooperates_with_UZB has_country_flag = cooperates_with_TMS has_country_flag = cooperates_with_KYR has_country_flag = cooperates_with_TAJ
+							}
+						}
+					}
+				}
+			}
+			BLR_coop_button_click_enabled = {
+				BLR = { if = {
+					limit = { exists = yes }
+					has_offensive_war_with = SOV
+					else = { NOT = { check_variable = { rebelliousness < 20 } } }
+				} }
+			}
+			BLR_popular_support_visible = { is_on_overview_tab = yes }
+			BLR_rebelliousness_visible = { is_on_overview_tab = yes }
+			BLR_uprising_visible = {
+				is_on_overview_tab = yes
+				BLR = { OR = {
+					NOT = { check_variable = { rebelliousness < 80 } }
+					has_country_flag = SRP_proclaimed_independence
+				} }
+			}
+
+			GEO_flag_visible = { is_on_overview_tab = yes }
+			GEO_frame_visible = { is_on_overview_tab = yes }
+			GEO_coop_button_visible = {
+				is_on_overview_tab = yes
+				has_chosen_country = yes
+				NOT = {
+					check_variable = { chosen_country = GEO }
+					var:chosen_country = {
+						OR = {
+							has_country_flag = cooperates_with_GEO
+							count_triggers = {
+								amount = 3
+								has_country_flag = cooperates_with_UKR has_country_flag = cooperates_with_BLR has_country_flag = cooperates_with_GEO has_country_flag = cooperates_with_ARM has_country_flag = cooperates_with_AZR
+								has_country_flag = cooperates_with_KAZ has_country_flag = cooperates_with_UZB has_country_flag = cooperates_with_TMS has_country_flag = cooperates_with_KYR has_country_flag = cooperates_with_TAJ
+							}
+						}
+					}
+				}
+			}
+			GEO_coop_button_click_enabled = {
+				GEO = { if = {
+					limit = { exists = yes }
+					has_offensive_war_with = SOV
+					else = { NOT = { check_variable = { rebelliousness < 20 } } }
+				} }
+			}
+			GEO_popular_support_visible = { is_on_overview_tab = yes }
+			GEO_rebelliousness_visible = { is_on_overview_tab = yes }
+			GEO_uprising_visible = {
+				is_on_overview_tab = yes
+				GEO = { OR = {
+					NOT = { check_variable = { rebelliousness < 80 } }
+					has_country_flag = SRP_proclaimed_independence
+				} }
+			}
+
+			ARM_flag_visible = { is_on_overview_tab = yes }
+			ARM_frame_visible = { is_on_overview_tab = yes }
+			ARM_coop_button_visible = {
+				is_on_overview_tab = yes
+				has_chosen_country = yes
+				NOT = {
+					check_variable = { chosen_country = ARM }
+					var:chosen_country = {
+						OR = {
+							has_country_flag = cooperates_with_ARM
+							count_triggers = {
+								amount = 3
+								has_country_flag = cooperates_with_UKR has_country_flag = cooperates_with_BLR has_country_flag = cooperates_with_GEO has_country_flag = cooperates_with_ARM has_country_flag = cooperates_with_AZR
+								has_country_flag = cooperates_with_KAZ has_country_flag = cooperates_with_UZB has_country_flag = cooperates_with_TMS has_country_flag = cooperates_with_KYR has_country_flag = cooperates_with_TAJ
+							}
+						}
+					}
+				}
+			}
+			ARM_coop_button_click_enabled = {
+				ARM = { if = {
+					limit = { exists = yes }
+					has_offensive_war_with = SOV
+					else = { NOT = { check_variable = { rebelliousness < 20 } } }
+				} }
+			}
+			ARM_popular_support_visible = { is_on_overview_tab = yes }
+			ARM_rebelliousness_visible = { is_on_overview_tab = yes }
+			ARM_uprising_visible = {
+				is_on_overview_tab = yes
+				ARM = { OR = {
+					NOT = { check_variable = { rebelliousness < 80 } }
+					has_country_flag = SRP_proclaimed_independence
+				} }
+			}
+
+			AZR_flag_visible = { is_on_overview_tab = yes }
+			AZR_frame_visible = { is_on_overview_tab = yes }
+			AZR_coop_button_visible = {
+				is_on_overview_tab = yes
+				has_chosen_country = yes
+				NOT = {
+					check_variable = { chosen_country = AZR }
+					var:chosen_country = {
+						OR = {
+							has_country_flag = cooperates_with_AZR
+							count_triggers = {
+								amount = 3
+								has_country_flag = cooperates_with_UKR has_country_flag = cooperates_with_BLR has_country_flag = cooperates_with_GEO has_country_flag = cooperates_with_ARM has_country_flag = cooperates_with_AZR
+								has_country_flag = cooperates_with_KAZ has_country_flag = cooperates_with_UZB has_country_flag = cooperates_with_TMS has_country_flag = cooperates_with_KYR has_country_flag = cooperates_with_TAJ
+							}
+						}
+					}
+				}
+			}
+			AZR_coop_button_click_enabled = {
+				AZR = { if = {
+					limit = { exists = yes }
+					has_offensive_war_with = SOV
+					else = { NOT = { check_variable = { rebelliousness < 20 } } }
+				} }
+			}
+			AZR_popular_support_visible = { is_on_overview_tab = yes }
+			AZR_rebelliousness_visible = { is_on_overview_tab = yes }
+			AZR_uprising_visible = {
+				is_on_overview_tab = yes
+				AZR = { OR = {
+					NOT = { check_variable = { rebelliousness < 80 } }
+					has_country_flag = SRP_proclaimed_independence
+				} }
+			}
+
+			KAZ_flag_visible = { is_on_overview_tab = yes }
+			KAZ_frame_visible = { is_on_overview_tab = yes }
+			KAZ_coop_button_visible = {
+				is_on_overview_tab = yes
+				has_chosen_country = yes
+				NOT = {
+					check_variable = { chosen_country = KAZ }
+					var:chosen_country = {
+						OR = {
+							has_country_flag = cooperates_with_KAZ
+							count_triggers = {
+								amount = 3
+								has_country_flag = cooperates_with_UKR has_country_flag = cooperates_with_BLR has_country_flag = cooperates_with_GEO has_country_flag = cooperates_with_ARM has_country_flag = cooperates_with_AZR
+								has_country_flag = cooperates_with_KAZ has_country_flag = cooperates_with_UZB has_country_flag = cooperates_with_TMS has_country_flag = cooperates_with_KYR has_country_flag = cooperates_with_TAJ
+							}
+						}
+					}
+				}
+			}
+			KAZ_coop_button_click_enabled = {
+				KAZ = { if = {
+					limit = { exists = yes }
+					has_offensive_war_with = SOV
+					else = { NOT = { check_variable = { rebelliousness < 20 } } }
+				} }
+			}
+			KAZ_popular_support_visible = { is_on_overview_tab = yes }
+			KAZ_rebelliousness_visible = { is_on_overview_tab = yes }
+			KAZ_uprising_visible = {
+				is_on_overview_tab = yes
+				KAZ = { OR = {
+					NOT = { check_variable = { rebelliousness < 80 } }
+					has_country_flag = SRP_proclaimed_independence
+				} }
+			}
+
+			UZB_flag_visible = { is_on_overview_tab = yes }
+			UZB_frame_visible = { is_on_overview_tab = yes }
+			UZB_coop_button_visible = {
+				is_on_overview_tab = yes
+				has_chosen_country = yes
+				NOT = {
+					check_variable = { chosen_country = UZB }
+					var:chosen_country = {
+						OR = {
+							has_country_flag = cooperates_with_UZB
+							count_triggers = {
+								amount = 3
+								has_country_flag = cooperates_with_UKR has_country_flag = cooperates_with_BLR has_country_flag = cooperates_with_GEO has_country_flag = cooperates_with_ARM has_country_flag = cooperates_with_AZR
+								has_country_flag = cooperates_with_KAZ has_country_flag = cooperates_with_UZB has_country_flag = cooperates_with_TMS has_country_flag = cooperates_with_KYR has_country_flag = cooperates_with_TAJ
+							}
+						}
+					}
+				}
+			}
+			UZB_coop_button_click_enabled = {
+				UZB = { if = {
+					limit = { exists = yes }
+					has_offensive_war_with = SOV
+					else = { NOT = { check_variable = { rebelliousness < 20 } } }
+				} }
+			}
+			UZB_popular_support_visible = { is_on_overview_tab = yes }
+			UZB_rebelliousness_visible = { is_on_overview_tab = yes }
+			UZB_uprising_visible = {
+				is_on_overview_tab = yes
+				UZB = { OR = {
+					NOT = { check_variable = { rebelliousness < 80 } }
+					has_country_flag = SRP_proclaimed_independence
+				} }
+			}
+
+			TMS_flag_visible = { is_on_overview_tab = yes }
+			TMS_frame_visible = { is_on_overview_tab = yes }
+			TMS_coop_button_visible = {
+				is_on_overview_tab = yes
+				has_chosen_country = yes
+				NOT = {
+					check_variable = { chosen_country = TMS }
+					var:chosen_country = {
+						OR = {
+							has_country_flag = cooperates_with_TMS
+							count_triggers = {
+								amount = 3
+								has_country_flag = cooperates_with_UKR has_country_flag = cooperates_with_BLR has_country_flag = cooperates_with_GEO has_country_flag = cooperates_with_ARM has_country_flag = cooperates_with_AZR
+								has_country_flag = cooperates_with_KAZ has_country_flag = cooperates_with_UZB has_country_flag = cooperates_with_TMS has_country_flag = cooperates_with_KYR has_country_flag = cooperates_with_TAJ
+							}
+						}
+					}
+				}
+			}
+			TMS_coop_button_click_enabled = {
+				TMS = { if = {
+					limit = { exists = yes }
+					has_offensive_war_with = SOV
+					else = { NOT = { check_variable = { rebelliousness < 20 } } }
+				} }
+			}
+			TMS_popular_support_visible = { is_on_overview_tab = yes }
+			TMS_rebelliousness_visible = { is_on_overview_tab = yes }
+			TMS_uprising_visible = {
+				is_on_overview_tab = yes
+				TMS = { OR = {
+					NOT = { check_variable = { rebelliousness < 80 } }
+					has_country_flag = SRP_proclaimed_independence
+				} }
+			}
+
+			KYR_flag_visible = { is_on_overview_tab = yes }
+			KYR_frame_visible = { is_on_overview_tab = yes }
+			KYR_coop_button_visible = {
+				is_on_overview_tab = yes
+				has_chosen_country = yes
+				NOT = {
+					check_variable = { chosen_country = KYR }
+					var:chosen_country = {
+						OR = {
+							has_country_flag = cooperates_with_KYR
+							count_triggers = {
+								amount = 3
+								has_country_flag = cooperates_with_UKR has_country_flag = cooperates_with_BLR has_country_flag = cooperates_with_GEO has_country_flag = cooperates_with_ARM has_country_flag = cooperates_with_AZR
+								has_country_flag = cooperates_with_KAZ has_country_flag = cooperates_with_UZB has_country_flag = cooperates_with_TMS has_country_flag = cooperates_with_KYR has_country_flag = cooperates_with_TAJ
+							}
+						}
+					}
+				}
+			}
+			KYR_coop_button_click_enabled = {
+				KYR = { if = {
+					limit = { exists = yes }
+					has_offensive_war_with = SOV
+					else = { NOT = { check_variable = { rebelliousness < 20 } } }
+				} }
+			}
+			KYR_popular_support_visible = { is_on_overview_tab = yes }
+			KYR_rebelliousness_visible = { is_on_overview_tab = yes }
+			KYR_uprising_visible = {
+				is_on_overview_tab = yes
+				KYR = { OR = {
+					NOT = { check_variable = { rebelliousness < 80 } }
+					has_country_flag = SRP_proclaimed_independence
+				} }
+			}
+
+			TAJ_flag_visible = { is_on_overview_tab = yes }
+			TAJ_frame_visible = { is_on_overview_tab = yes }
+			TAJ_coop_button_visible = {
+				is_on_overview_tab = yes
+				has_chosen_country = yes
+				NOT = {
+					check_variable = { chosen_country = TAJ }
+					var:chosen_country = {
+						OR = {
+							has_country_flag = cooperates_with_TAJ
+							count_triggers = {
+								amount = 3
+								has_country_flag = cooperates_with_UKR has_country_flag = cooperates_with_BLR has_country_flag = cooperates_with_GEO has_country_flag = cooperates_with_ARM has_country_flag = cooperates_with_AZR
+								has_country_flag = cooperates_with_KAZ has_country_flag = cooperates_with_UZB has_country_flag = cooperates_with_TMS has_country_flag = cooperates_with_KYR has_country_flag = cooperates_with_TAJ
+							}
+						}
+					}
+				}
+			}
+			TAJ_coop_button_click_enabled = {
+				TAJ = { if = {
+					limit = { exists = yes }
+					has_offensive_war_with = SOV
+					else = { NOT = { check_variable = { rebelliousness < 20 } } }
+				} }
+			}
+			TAJ_popular_support_visible = { is_on_overview_tab = yes }
+			TAJ_rebelliousness_visible = { is_on_overview_tab = yes }
+			TAJ_uprising_visible = {
+				is_on_overview_tab = yes
+				TAJ = { OR = {
+					NOT = { check_variable = { rebelliousness < 80 } }
+					has_country_flag = SRP_proclaimed_independence
+				} }
+			}
+
+			 ##  ##  #  # #  # ### ###  # #     ###  ### ###  ##  ### #    ##
+			#   #  # #  # ## #  #  #  # # #     #  # #    #  #  #  #  #   #  
+			#   #  # #  # # ##  #  ###   #      #  # ##   #  ####  #  #    # 
+			#   #  # #  # #  #  #  #  #  #      #  # #    #  #  #  #  #     #
+			 ##  ##   ##  #  #  #  #  #  #      ###  ###  #  #  # ### ### ## 
+
+			COUNTRY_popular_support_title_visible = { is_on_details_tab = yes }
+			COUNTRY_popular_support_value_visible = { is_on_details_tab = yes }
+			COUNTRY_rebelliousness_title_visible = { is_on_details_tab = yes }
+			COUNTRY_rebelliousness_value_visible = { is_on_details_tab = yes }
+			COUNTRY_rebelliousness_daily_visible = { is_on_details_tab = yes }
+			COUNTRY_resistance_political_power_visible = { is_on_details_tab = yes }
+			COUNTRY_resistance_command_power_visible = { is_on_details_tab = yes }
+			COUNTRY_cooperation_visible = { is_on_details_tab = yes }
+			COUNTRY_cooperating1_frame_visible = {
+				is_on_details_tab = yes
+				has_variable = chosen_country:coop_with^0
+			}
+			COUNTRY_cooperating1_visible = {
+				is_on_details_tab = yes
+				has_variable = chosen_country:coop_with^0
+			}
+			COUNTRY_cooperating2_frame_visible = {
+				is_on_details_tab = yes
+				has_variable = chosen_country:coop_with^1
+			}
+			COUNTRY_cooperating2_visible = {
+				is_on_details_tab = yes
+				has_variable = chosen_country:coop_with^1
+			}
+			COUNTRY_cooperating3_frame_visible = {
+				is_on_details_tab = yes
+				has_variable = chosen_country:coop_with^2
+			}
+			COUNTRY_cooperating3_visible = {
+				is_on_details_tab = yes
+				has_variable = chosen_country:coop_with^2
+			}
+		}
+
+		effects = {
+			overview_tab_click = {
+				set_variable = { overview_tab_state = 1 }
+				set_variable = { details_tab_state = 2 }
+			}
+			details_tab_click = {
+				set_variable = { overview_tab_state = 2 }
+				set_variable = { details_tab_state = 1 }
+			}
+			UKR_coop_button_click = {
+				var:chosen_country = {
+					set_country_flag = cooperates_with_UKR
+					add_to_array = { coop_with = UKR }
+					UKR = {
+						set_country_flag = cooperates_with_@PREV
+						add_to_array = { coop_with = PREV }
+						set_variable = { country_relation = 3 }
+					}
+				}
+			}
+			BLR_coop_button_click = {
+				var:chosen_country = {
+					set_country_flag = cooperates_with_BLR
+					add_to_array = { coop_with = BLR }
+					BLR = {
+						set_country_flag = cooperates_with_@PREV
+						add_to_array = { coop_with = PREV }
+						set_variable = { country_relation = 3 }
+					}
+				}
+			}
+			GEO_coop_button_click = {
+				var:chosen_country = {
+					set_country_flag = cooperates_with_GEO
+					add_to_array = { coop_with = GEO }
+					GEO = {
+						set_country_flag = cooperates_with_@PREV
+						add_to_array = { coop_with = PREV }
+						set_variable = { country_relation = 3 }
+					}
+				}
+			}
+			ARM_coop_button_click = {
+				var:chosen_country = {
+					set_country_flag = cooperates_with_ARM
+					add_to_array = { coop_with = ARM }
+					ARM = {
+						set_country_flag = cooperates_with_@PREV
+						add_to_array = { coop_with = PREV }
+						set_variable = { country_relation = 3 }
+					}
+				}
+			}
+			AZR_coop_button_click = {
+				var:chosen_country = {
+					set_country_flag = cooperates_with_AZR
+					add_to_array = { coop_with = AZR }
+					AZR = {
+						set_country_flag = cooperates_with_@PREV
+						add_to_array = { coop_with = PREV }
+						set_variable = { country_relation = 3 }
+					}
+				}
+			}
+			KAZ_coop_button_click = {
+				var:chosen_country = {
+					set_country_flag = cooperates_with_KAZ
+					add_to_array = { coop_with = KAZ }
+					KAZ = {
+						set_country_flag = cooperates_with_@PREV
+						add_to_array = { coop_with = PREV }
+						set_variable = { country_relation = 3 }
+					}
+				}
+			}
+			UZB_coop_button_click = {
+				var:chosen_country = {
+					set_country_flag = cooperates_with_UZB
+					add_to_array = { coop_with = UZB }
+					UZB = {
+						set_country_flag = cooperates_with_@PREV
+						add_to_array = { coop_with = PREV }
+						set_variable = { country_relation = 3 }
+					}
+				}
+			}
+			TMS_coop_button_click = {
+				var:chosen_country = {
+					set_country_flag = cooperates_with_TMS
+					add_to_array = { coop_with = TMS }
+					TMS = {
+						set_country_flag = cooperates_with_@PREV
+						add_to_array = { coop_with = PREV }
+						set_variable = { country_relation = 3 }
+					}
+				}
+			}
+			KYR_coop_button_click = {
+				var:chosen_country = {
+					set_country_flag = cooperates_with_KYR
+					add_to_array = { coop_with = KYR }
+					KYR = {
+						set_country_flag = cooperates_with_@PREV
+						add_to_array = { coop_with = PREV }
+						set_variable = { country_relation = 3 }
+					}
+				}
+			}
+			TAJ_coop_button_click = {
+				var:chosen_country = {
+					set_country_flag = cooperates_with_TAJ
+					add_to_array = { coop_with = TAJ }
+					TAJ = {
+						set_country_flag = cooperates_with_@PREV
+						add_to_array = { coop_with = PREV }
+						set_variable = { country_relation = 3 }
+					}
+				}
+			}
+		}
+	}
+}

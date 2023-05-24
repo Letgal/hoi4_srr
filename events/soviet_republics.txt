@@ -1,0 +1,125 @@
+add_namespace = soviet_republics
+country_event = {
+	id = soviet_republics.1 # Resistance Crushed in State
+	title = soviet_republics.1.t
+	desc = soviet_republics.1.d
+	#picture = GFX_report_event_japanese_transport_soldiers
+
+	trigger = {
+		original_tag = SOV
+		has_chosen_country = yes
+		has_chosen_rescap = yes
+		NOT = { has_decision = SRP_proclaim_independence }
+		any_owned_state = {
+			has_state_flag = infiltrated_state
+			NOT = { has_state_flag = rescap_state }
+		}
+	}
+
+	mean_time_to_happen = { days = 30 } # Add factor depending on rebelliousness. Also, tieing Stalin's paranoia here would be appropriate
+
+	option = {
+		name = soviet_republics.1.a
+		subtract_from_variable = { chosen_country:popular_support = 5 tooltip = add_popular_support }
+		random_state = {
+			limit = {
+				has_state_flag = infiltrated_state
+				NOT = { has_state_flag = rescap_state }
+				any_neighbor_state = { NOT = { has_state_flag = infiltrated_state } }
+			}
+			custom_effect_tooltip = resistance_crushed_in_state
+			clr_state_flag = infiltrated_state
+		}
+	}
+}
+country_event = {
+	id = soviet_republics.2 # Offer Peace to the Soviets
+	title = soviet_republics.2.t
+	desc = soviet_republics.2.d
+	#picture = GFX_report_event_japanese_transport_soldiers
+	
+	is_triggered_only = yes
+	
+	option = { # Accept
+		name = soviet_republics.2.a
+		ai_chance = {
+			base = 0
+			modifier = {
+				FROM = { all_owned_state = { is_controlled_by = PREV } }
+				FROM = { has_country_flag = { flag = SRP_proclaimed_independence days > 89 } }
+				add = 10
+			}
+			modifier = {
+				surrender_progress > 0.04
+				any_owned_state = { is_controlled_by = FROM }
+				add = 30
+			}
+		}
+		white_peace = FROM
+		add_war_support = -0.15
+	}
+	option = { # Decline
+		name = soviet_republics.2.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				has_war_support > 0.5
+				add = 10
+			}
+			modifier = {
+				has_war_support > 0.8
+				add = 10
+			}
+		}
+		add_war_support = 0.05
+	}
+}
+country_event = {
+	id = soviet_republics.3 # Rename Donetsk/Yuzovka
+	title = soviet_republics.3.t
+	desc = soviet_republics.3.d
+	#picture = GFX_report_event_japanese_transport_soldiers
+	
+	is_triggered_only = yes
+	
+	option = { # Donetsk
+		name = soviet_republics.3.a
+		227 = { set_state_name = SOV_Donetsk }
+		set_province_name = { id = 6474 name = SOV_Donetsk }
+	}
+	option = { # Yuzivka
+		name = soviet_republics.3.b
+		227 = { set_state_name = SOV_Yuzovka }
+		set_province_name = { id = 6474 name = SOV_Yuzovka }
+	}
+}
+
+add_namespace = soviet_republics_news
+news_event = {
+	id = soviet_republics_news.1 # Country has risen
+	title = soviet_republics_news.1.t
+	desc = soviet_republics_news.1.d
+	#picture = GFX_report_event_japanese_transport_soldiers
+
+	trigger = {
+		any_country = { has_country_flag = SRP_proclaimed_independence }
+	}
+
+	mean_time_to_happen = { days = 1 }
+	fire_only_once = yes
+
+	option = {
+		name = soviet_republics_news.1.SOV
+		trigger = {
+			original_tag = SOV
+			SOV = { has_defensive_war = yes }
+		}
+	}
+	option = {
+		name = soviet_republics_news.1.other
+		trigger = {
+			NOT = { original_tag = SOV }
+			SOV = { has_defensive_war = yes }
+		}
+	}
+}

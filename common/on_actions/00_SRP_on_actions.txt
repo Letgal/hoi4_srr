@@ -1,0 +1,54 @@
+on_actions = {
+on_startup = {
+	effect = {
+		SOV = {
+			set_variable = { overview_tab_state = 1 }
+			set_variable = { details_tab_state = 2 }
+		}
+		every_possible_country = {
+			limit = {
+				OR = {
+					original_tag = UKR
+					original_tag = BLR
+					original_tag = GEO
+					original_tag = ARM
+					original_tag = AZR
+					original_tag = KAZ
+					original_tag = UZB
+					original_tag = TMS
+					original_tag = KYR
+					original_tag = TAJ
+				}
+			}
+			add_to_array = { global.SRP_array = THIS }
+			set_variable = { country_relation = 1 } # Affects SR's frame
+			set_variable = { rebelliousness_daily_base = 0.01 }
+		}
+	}
+}
+on_daily = {
+	effect = {
+		every_possible_country = {
+			limit = { has_country_flag = has_resistance_movement }
+			clamp_variable = { var = popular_support min = 0 max = 100 }
+			clamp_variable = { var = rebelliousness min = 0 max = 100 }
+			set_variable = { rebelliousness_daily = rebelliousness_daily_base }
+			add_to_variable = { THIS.rebelliousness = THIS.rebelliousness_daily }
+			add_to_variable = { THIS.resistance_political_power = 1 }
+			add_to_variable = { THIS.resistance_command_power = 0.334 }
+		}
+	}
+}
+#ROOT is winner #FROM gets annexed - For civil wars on_civil_war_end is also fired
+on_annex = {
+	effect = {
+		if = {
+			limit = {
+				is_in_array = { global.SRP_array = FROM }
+				has_country_flag = SRP_proclaimed_independence
+			}
+			clr_country_flag = SRP_proclaimed_independence
+		}
+	}
+}
+}

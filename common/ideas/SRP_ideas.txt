@@ -1,0 +1,31 @@
+ideas = {
+	country = {
+		SRP_disorganized_armed_forces = {
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = chi_incompetent_officers
+			modifier = {
+				army_attack_factor = -0.15
+				army_defence_factor = -0.15
+				army_speed_factor = -0.05
+				breakthrough_factor = -0.25
+			}
+		}
+		SRP_nationalism = {
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_fascism_drift_2
+			modifier = {
+				fascism_drift = 0.05
+				democratic_drift = -0.01
+				offensive_war_stability_factor = 0.15
+				war_support_factor = 0.3
+				army_core_attack_factor = 0.1
+				army_core_defence_factor = 0.2
+				army_morale_factor = 0.25
+			}
+		}
+	}
+}
