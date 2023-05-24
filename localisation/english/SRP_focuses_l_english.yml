@@ -1,0 +1,21 @@
+﻿l_english:
+SOV_national_resistance: "National Resistance"
+SOV_national_resistance_tt: "Constituent republics can begin national resistance activity."
+
+SOV_clamp_down_on_the_resistance: "Clamp Down on the Resistance"
+SOV_achieve_a_compromise: "Achieve a Compromise"
+SOV_train_national_army_units_focus: "Train [?chosen_country.GetAdjective] National Army Units"
+
+SOV_russify_white_russia: "Russify White Russia"
+SOV_integrate_belarus: "Integrate Belarus"
+SOV_autonomous_belarus: "Autonomy for Belarus"
+
+SOV_pacify_the_ukrainians: "Pacify the Ukrainians"
+SOV_integrate_ukraine: "Integrate Ukraine"
+SOV_autonomous_ukraine: "Autonomy for Ukraine"
+SOV_claim_west_belarus: "Lay Claim on West Belarus"
+
+SOV_dissolve_tsfsr: "Dissolve the TSFSR"
+SOV_autonomous_tsfsr: "Autonomy for the TSFSR"
+SOV_claim_west_ukraine: "Lay Claim on West Ukraine"
+SOV_soviet_republics: "Autonomous Soviet Republics"

@@ -1,0 +1,28 @@
+﻿l_english:
+STATE_909: "Krivoi Rih"
+STATE_910: "Melitopol"
+STATE_911: "Mariupol"
+STATE_912: "Shostka"
+STATE_913: "Kirovograd"
+STATE_914: "Lubny"
+
+VICTORY_POINTS_6420: "Mariupol"
+
+### RENAMES ###
+Khmelnytskyi: "Khmelnytskyi"
+Dnipro: "Dnipro"
+Luhansk: "Luhansk"
+Aqtobe: "Aqtöbe"
+Kyzylorda: "Kyzylorda"
+Atyrau: "Atyrau"
+Oral: "Oral" # Yes, really
+Qostanay: "Qostanay"
+Almaty: "Almaty"
+Semey: "Semey"
+Ayagoz: "Ayagoz"
+Akmola: "Akmola"
+Kropyvnytskyi: "Kropyvnytskyi"
+
+### L_ENGLISH UNIQUE ###
+STATE_199: "Proskurov"
+VICTORY_POINTS_3457: "Proskurov"

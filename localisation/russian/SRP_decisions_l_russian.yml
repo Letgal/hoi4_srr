@@ -1,0 +1,103 @@
+﻿l_russian:
+SRP_activate_resistance: "Activate National Resistance"
+SRP_interaction_dec_cat: "[SOV.GetAdjective] Republics Interaction"
+SRP_infiltrated_states_view: "These are the states infiltrated by the [?chosen_country.GetAdjective] rebels"
+
+SRP_majority_side: "Side with the Russians"
+SRP_majority_side_flag: "Sided with the Russians"
+
+SRP_minority_side: "Side with the National Minorities"
+SRP_minority_side_flag: "Sided with the National Minorities"
+
+SRP_establish_rescap: "Establish the [?chosen_country.GetAdjective] Resistance Center in [FROM.GetCapitalVictoryPointName]"
+SRP_establish_rescap_tt: "§H[?chosen_country.GetNonIdeologyName]§! will be chosen with the resistance center in §H[FROM.GetCapitalVictoryPointName]§!."
+
+SRP_infiltrate_state: "Infiltrate [FROM.GetName]"
+infiltrating_states_at_most_2: "Infiltrating no more than §Y2§! states at the time"
+infiltrated_state: "Has infiltrated the state"
+state_will_be_infiltrated: "will be infiltrated by the resistance."
+
+SRP_spread_propaganda_nationalist: "Spread Nationalist Propaganda"
+SRP_spread_propaganda_anti_SOV: "Spread Anti-[SOV.GetAdjective] Propaganda"
+popular_support_less_than_100: "Has less than §Y100%§! popular support"
+add_popular_support: "Popular Support: $RIGHT|+=0$."
+
+SRP_train_national_army_units: "Train [?chosen_country.GetAdjective] National Army Units"
+has_recruited_units_at_most_3: "Has recruited no more than §Y3§! units in the state"
+SRP_train_national_army_units_tt: "Creates a [?chosen_country.GetAdjective] division in [FROM.GetCapitalVictoryPointName]." # Add all those names as scripted localization
+SRP_train_national_army_units_kyiv_tt: "§HKyivan Defense Force§!"
+SRP_train_national_army_units_kharkiv_tt: "§HEastern Ukrainian Brigade§!"
+SRP_train_national_army_units_odesa_tt: "§HOdessite Division§!"
+SRP_train_national_army_units_lviv_tt: "§HRusyn Division§!"
+SRP_train_national_army_units_minsk_tt: "§H1st Belrusian Division§!"
+SRP_train_national_army_units_homyel_tt: "§HDnieper Brigade§!"
+SRP_train_national_army_units_brest_tt: "§HPolesian Garrison§!"
+
+SRP_train_volunteer_units: "Train [?chosen_country.GetAdjective] Volunteer Units"
+has_recruited_units_at_most_5: "Has recruited no more than §Y5§! units in the state"
+SRP_train_volunteer_units_tt: "Creates a [?chosen_country.GetAdjective] reserve division in [FROM.GetCapitalVictoryPointName]."
+
+SRP_start_resistance_in_POL: "Spark Resistance in Poland"
+
+SRP_proclaim_independence: "Proclaim Independence"
+SRP_proclaim_independence_desc: "The time to rise has come. Alea iacta est."
+has_at_least_30_popular_support: "Has at least §Y30%§! popular support"
+has_at_least_60_rebelliousness: "Has at least §Y60%§! rebelliousness"
+country_declares_war: "§H[THIS.GetNameDefCap]§! declares war of independence on §H[ROOT.GetNameDef]§!.\n"
+SOV_gets_claims: "§HEvery owned state§!: Claim gained by @SOV§H[SOV.GetNameDef]§!.\n"
+others_will_rise: "\nOther countries you cooperate with will declare independence together with you if they have high enough rebelliousness.\n"
+country_gets_idea1: "Add §Y$SRP_disorganized_armed_forces$§!."
+country_gets_idea2: "Add §Y$SRP_nationalism$§! for §Y120§! days."
+resistance_friend: "Resistance Friend"
+
+SRP_decommunization: "Decommunization of [FROM.GetName]"
+
+SRP_destalinization: "Destalinization of [FROM.GetName]"
+
+SRP_endonyms: "Rename [FROM.GetName]"
+
+SRP_commemorate_pereyaslav: "Commemorate the Treaty of Pereyaslav"
+
+has_chosen_country_tt: "Has chosen a country"
+has_chosen_country_tt_NOT: "Hasn't chosen a country"
+has_chosen_rescap_tt: "Has chosen a resistance center"
+has_chosen_rescap_tt_NOT: "Hasn't chosen a resistance center"
+required_core_of_list: "Is a core of one of the following nations:\n   - §H[UKR.GetFlag][UKR.GetNonIdeologyName]§!\n   - §H[BLR.GetFlag][BLR.GetNonIdeologyName]§!\n   - §H[GEO.GetFlag][GEO.GetNonIdeologyName]§!\n   - §H[ARM.GetFlag][ARM.GetNonIdeologyName]§!\n   - §H[AZR.GetFlag][AZR.GetNonIdeologyName]§!\n   - §H[KAZ.GetFlag][KAZ.GetNonIdeologyName]§!\n   - §H[UZB.GetFlag][UZB.GetNonIdeologyName]§!\n   - §H[TMS.GetFlag][TMS.GetNonIdeologyName]§!\n   - §H[KYR.GetFlag][KYR.GetNonIdeologyName]§!\n   - §H[TAJ.GetFlag][TAJ.GetNonIdeologyName]§!\n   - §H[TAN.GetFlag][TAN.GetNonIdeologyName]§!"
+
+### DECISION COST ###
+decision_cost_CP_14: "£command_power£ §Y14§!"
+decision_cost_CP_14_blocked: "£command_power£ §R14§!"
+decision_cost_CP_14_tooltip: "It costs £command_power£ §Y14§! to take this decision"
+decision_cost_PP_90_IE_1000: "£pol_power£ §Y90§! £infantry_equipment_text_icon£ §Y1000§!"
+decision_cost_PP_90_IE_1000_blocked: "£pol_power£ §R90§! £infantry_equipment_text_icon£ §R1000§!"
+decision_cost_PP_90_IE_1000_tooltip: "It costs £pol_power£ §Y90§! and £infantry_equipment_text_icon£ §Y1000§! to take this decision"
+
+### OFFER USSR PEACE ###
+SRP_offer_peace: "Offer Peace to [SOV.GetNameDef]"
+SRP_proclaimed_independence_90_days: "Independence was proclaimed at least §Y90§! days ago"
+
+### DEBUG ###
+SRP_debug_clear_interaction_choice_flags: "§O(Debug)§! Clear Side Choice"
+debug_clear_majority_flag: "Clears the '§H$SRP_majority_side$§!' country flag"
+debug_clear_minority_flag: "Clears the '§H$SRP_minority_side$§!' country flag"
+
+SRP_debug_establish_rescap_instant: "§O(Debug)§! $SRP_establish_rescap$ (instant)"
+
+SRP_debug_clear_chosen_country_and_rescap: "§O(Debug)§! Reset Chosen Country and Resistance Center"
+debug_clear_chosen_country: "Resets the chosen country (§H[?chosen_country.GetFlag][?chosen_country.GetNonIdeologyName]§!)"
+debug_clear_chosen_rescap: "Resets the chosen resistance center\n(§H[?chosen_rescap.GetCapitalVictoryPointName]§! in §H[?chosen_rescap.GetName]§!)"
+
+SRP_debug_clear_cooperations: "§O(Debug)§! Cease All Cooperations"
+debug_clear_coop_with_UKR: "\nCeases cooperation with §Y[UKR.GetNonIdeologyNameDef]§!"
+debug_clear_coop_with_BLR: "\nCeases cooperation with §Y[BLR.GetNonIdeologyNameDef]§!"
+debug_clear_coop_with_GEO: "\nCeases cooperation with §Y[GEO.GetNonIdeologyNameDef]§!"
+debug_clear_coop_with_ARM: "\nCeases cooperation with §Y[ARM.GetNonIdeologyNameDef]§!"
+debug_clear_coop_with_AZR: "\nCeases cooperation with §Y[AZR.GetNonIdeologyNameDef]§!"
+debug_clear_coop_with_KAZ: "\nCeases cooperation with §Y[KAZ.GetNonIdeologyNameDef]§!"
+debug_clear_coop_with_UZB: "\nCeases cooperation with §Y[UZB.GetNonIdeologyNameDef]§!"
+debug_clear_coop_with_TMS: "\nCeases cooperation with §Y[TMS.GetNonIdeologyNameDef]§!"
+debug_clear_coop_with_KYR: "\nCeases cooperation with §Y[KYR.GetNonIdeologyNameDef]§!"
+debug_clear_coop_with_TAJ: "\nCeases cooperation with §Y[TAJ.GetNonIdeologyNameDef]§!"
+
+### URUGUAYAN AI ###
+URG_resmov_number_tracking: "Launched Resistance Movements: [?SOV.launched_resistance_movements|H0]"

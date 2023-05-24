@@ -1,0 +1,20 @@
+﻿l_russian:
+soviet_republics.1.t: "[ROOT.GetNameDefCap] cracks down on resistance"
+soviet_republics.1.d: ""
+soviet_republics.1.a: "Damn it."
+resistance_crushed_in_state: "Resistance is crushed in state." # §H[?chosen_country.GetAdjective]§!
+
+soviet_republics.2.t: "[FROM.GetNameDefCap] offers peace"
+soviet_republics.2.d: ""
+soviet_republics.2.a: "Do we have other choice?"
+soviet_republics.2.b: "No peace with the rebels!"
+
+soviet_republics.3.t: "Renaming Stalino"
+soviet_republics.3.d: ""
+soviet_republics.3.a: "$SOV_Donetsk$."
+soviet_republics.3.b: "$SOV_Yuzovka$."
+
+soviet_republics_news.1.t: "[FROM.GetNameDefCap] proclaims independence!"
+soviet_republics_news.1.d: ""
+soviet_republics_news.1.SOV: "Crush them before it becomes worse!"
+soviet_republics_news.1.other: "Looks like [ROOT.GetNameDef] is in trouble."
