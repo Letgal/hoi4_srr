@@ -1,21 +1,21 @@
 ﻿l_russian:
-SOV_national_resistance: "National Resistance"
-SOV_national_resistance_tt: "Constituent republics can begin national resistance activity."
+SOV_national_resistance: "Национальное сопротивление"
+SOV_national_resistance_tt: "Учредительные республики могут начать деятельность национального сопротивления."
 
-SOV_clamp_down_on_the_resistance: "Clamp Down on the Resistance"
-SOV_achieve_a_compromise: "Achieve a Compromise"
-SOV_train_national_army_units_focus: "Train [?chosen_country.GetAdjective] National Army Units"
+SOV_clamp_down_on_the_resistance: "«Прижать» сопротивление"
+SOV_achieve_a_compromise: "Достичь компромисса"
+SOV_train_national_army_units_focus: "Тренировать дивизии [?chosen_country.GetAdjective] национальной армии"
 
-SOV_russify_white_russia: "Russify White Russia"
-SOV_integrate_belarus: "Integrate Belarus"
-SOV_autonomous_belarus: "Autonomy for Belarus"
+SOV_russify_white_russia: "Руссифицировать Белую Русь"
+SOV_integrate_belarus: "Интергрировать Белоруссию" # sic!
+SOV_autonomous_belarus: "Автономия для Белоруссии"
 
-SOV_pacify_the_ukrainians: "Pacify the Ukrainians"
-SOV_integrate_ukraine: "Integrate Ukraine"
-SOV_autonomous_ukraine: "Autonomy for Ukraine"
-SOV_claim_west_belarus: "Lay Claim on West Belarus"
+SOV_pacify_the_ukrainians: "Умиротворить украинцев"
+SOV_integrate_ukraine: "Интергрировать Украину"
+SOV_autonomous_ukraine: "Автономия для Украины"
+SOV_claim_west_belarus: "Предъявить претензию на запад Белоруссии"
 
-SOV_dissolve_tsfsr: "Dissolve the TSFSR"
-SOV_autonomous_tsfsr: "Autonomy for the TSFSR"
-SOV_claim_west_ukraine: "Lay Claim on West Ukraine"
-SOV_soviet_republics: "Autonomous Soviet Republics"
+SOV_dissolve_tsfsr: "Распустить ЗСФСР"
+SOV_autonomous_tsfsr: "Автономия для ЗСФСР"
+SOV_claim_west_ukraine: "Предъявить претензию на запад Украины"
+SOV_soviet_republics: "Автономные советские республики"
